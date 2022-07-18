@@ -1,2 +1,2 @@
-a, b = input().split('-')
-print(a + b)
+number = int(input())
+print(len(str(number)))
