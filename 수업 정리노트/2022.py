@@ -1,9 +1,9 @@
-import sys
+numbers = list(map(int, input().split()))
+numbers.sort()
 
-sys.stdin = open("input.txt", "r")
-
-T = int(input())
-
-for i in range(1, T+1):
-    a, b = map(int, input().split())
-    print("#{} {} {}".format(i, a//b, a%b))
+total = 0
+count = 0
+for i in range(1, len(numbers)-1):
+    total += numbers[i]
+    count += 1
+    print(total // count)
