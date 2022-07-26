@@ -109,7 +109,7 @@ for i in range(T):
     print(sum)
 ```
 ```python
-# 2609번 - 공약수와 최소공배수
+# 2609번 - 최대공약수와 최소공배수
 import sys
 
 sys.stdin = open("27_최대공약수와최소공배수.txt")
@@ -140,7 +140,9 @@ def lcm(a, b):
     
 print(gcd(a, b))
 print(lcm(a, b))
+
 ---
+
 # math 모듈 속에 파이썬 최대공약수와 최소공배수를 구하는 함수가 내장
 import math
     
@@ -172,6 +174,21 @@ for i in range(1, N + 1):
     # 생성자가 없다면 0 출력    
     if i == N:
         print(0)
+---
+
+n = int(input())
+num_list = []
+for i in range(n):
+    sum_i = 0
+    for j in str(i):
+        sum_i += int(j)   
+    if i + sum_i == n:
+        num_list.append(i)
+        
+if num_list == []:
+    print(0)
+else:
+    print(min(num_list))    
 ```
 ```python
 # 2846번 - 오르막길
@@ -201,7 +218,9 @@ for i in range(1,N):
 answer.append(sum) # 맨 마지막에 오르막길이 등장하면 위 for문으로는 append가 안되서 추가.
 if len(answer) == 0 : print(0) # 오르막이 한번도 없었다면 0 출력
 else : print(max(answer))
+
 ---
+
 n = int(input())
 arr = list(map(int,input().split()))
 start,end = arr[0], arr[0]
