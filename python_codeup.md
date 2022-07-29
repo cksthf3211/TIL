@@ -1,4 +1,5 @@
 # CodeUp Python 기초 연습
+> [Python 기초 100제 (codeup.kr)](https://codeup.kr/problemsetsol.php?psid=33)
 ### 연습
 ```python
 점심메뉴 = ['국밥','삼겹살','열라면','샐러드']
