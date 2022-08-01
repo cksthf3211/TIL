@@ -1,5 +1,14 @@
 # CodeUp Python 기초 연습
 > [Python 기초 100제 (codeup.kr)](https://codeup.kr/problemsetsol.php?psid=33)
+
+python 프로그래밍을 처음 배울 때 좋은 습관(단계)  
+1. 입력된 문자열을 정확하게 잘라낸다
+    - (공백, 줄바꿈, 구분문자 등에 따라 정확하게 잘라낸다.)  
+3. 잘라낸 데이터들을 데이터형에 맞게 변환해 변수에 저장한다. 
+    - (정수, 실수, 문자, 문자열 등에 따라 정확하게 변환한다.)  
+5. 값을 저장했다가 다시 사용하기 위해, 변수를 이용해 값을 저장하고, 변수를 이용해 계산을 한다.  
+6. 원하는 결과 값을 필요한 형태로 만들어 출력한다.(공백, 줄바꿈, 구분자, 등에 따라 원하는 형태로 만들어 출력한다.)
+
 ### 연습
 ```python
 점심메뉴 = ['국밥','삼겹살','열라면','샐러드']
@@ -321,6 +330,8 @@ print(-n)
 # 33번 - 문자 1개를 입력받아 그 다음 문자 출력
 c = ord(input())
 print(chr(c+1))
+---
+print(chr(ord(input())+1))
 ```
 
 ```python
@@ -332,32 +343,198 @@ a = input()
 b = input()
 c = a - b
 print(c)
+---
+a, b = input().split()
+print(int(a) - int(b))
 ```
 
 ```python
 # 35번 - 실수 2개를 입력받아 곱을 출력하는 프로그램 출력 n
 m = f1 * f2
 print(m)
+---
+a, b = input().split()
+print(float(a) * float(b))
 ```
 
 ```python
 # 36번 - 단어 여러번 출력하기 n
-# 
 w, n = input().split()
 print(w*int(n))
 ```
 
 ```python
-# 37번 - 
-# 
+# 37번 - 문장 여러 번 출력하기
+n = input()  
+s = input()  
+print(int(n)*s)
+```
+
+```python
+# 38번 - 정수 2개 입력받아 거듭제곱 계산하기
+c = a ** b
+print(c)
+---
+a, b = input().split()
+print(int(a) ** int(b))
+```
+```python
+# 39번 - 실수 2개 입력받아 거듭제곱 계산
+f1, f2 = input().split()
+print(float(f1) ** float(f2))
+```
+```python
+# 40번 - 정수 2개 입력받아 나눈 몫 계산
+a, b = input().split()
+print(int(a) // int(b))
+```
+
+## 41번~50번
+```python
+# 41번 - 정수 2개 입력받아 나눈 나머지 계산
+a, b = input().split()
+print(int(a) % int(b))
+```
+```python
+# 42번 - 실수 1개를 입력받아 소숫점이하 자리 변환하기
+a = float(input())
+print(format(a,'.2f'))
+```
+```python
+# 43번 - 실수 2개 입력받아 나눈 결과 계산
+f1, f2 = float(input().split())
+print(f1 // f2,'.3f')
+---
+a, b = map(float, input().split())
+print('%.3f' %round((a / b), 3))
+---
+a, b = map(float, input().split())
+c = a/b
+print("%0.3f" % c)
+---
+a, b = input().split()
+a = float(a)
+b = float(b)
+c = a/b
+print('%.3f'%c)
+```
+
+```python
+# 44번 - 정수 2개 입력받아 자동 계산
+a, b = map(int, input().split())
+# 합(+), 차(-), 곱(*), 몫(//), 나머지(%), 나눈 값(/)을 자동으로 계산
+# 소수점 반올림을 해주는 round() 함수
+print(a + b)
+print(a - b)
+print(a * b)
+print(a // b)
+print(a % b)
+print(round(a / b, 2))
+```
+
+```python
+# 45번 - ## 정수 3개 입력받아 합과 평균 출력
+a, b, c = map(int, input().split())
+d = a + b + c
+e = d / 3
+print(d, round(e, 3))
+---
+a, b, c = map(int, input().split())
+print((a+b+c), round((a+b+c)/3,2))
+---
+a, b, c = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+hap = a+b+c
+avg = hap/3
+print(hap, format(avg, ".2f"))
+```
+
+```python
+# 46번 - 정수 1개 입력받아 2배 곱해 출력
+a = int(input())
+# 정수를 2배로 곱하거나 나누어 계산해 주는 비트단위시프트연산자 <<, >>를 이용
+print(a << 1)
+# 컴퓨터 내부에는 2진수 형태로 값들이 저장되기 때문에,  2진수 형태로 저장되어 있는 값들을 왼쪽(&lt;<)이나 오른쪽(&gt;>)으로 지정한 비트 수만큼 밀어주면 2배씩 늘어나거나 1/2로 줄어드는데, 왼쪽 비트시프트(<<)가 될 때에는 오른쪽에 0이 주어진 개수만큼 추가되고,  오른쪽 비트시프트(>>)가 될 때에는 왼쪽에 0(0 또는 양의 정수인 경우)이나 1(음의 정수인 경우)이 개수만큼 추가되고, 가장 오른쪽에 있는 1비트는 사라진다.
+# print(n<<1)  #10을 2배 한 값인 20 이 출력
+# print(n>>1)  #10을 반으로 나눈 값인 5 가 출력
+# print(n<<2)  #10을 4배 한 값인 40 이 출력
+# print(n>>2)  #10을 반으로 나눈 후 다시 반으로 나눈 값인 2 가 출력
+```
+
+```python
+# 47번 - 2의 거듭제곱 배로 곱해 출력
+a, b = map(int, input().split())
+print(a << b)
+# a = 2  
+# b = 10  
+# print(a << b)  #2<sup>10</sup> = 1024 가 출력된다.
+```
+
+```python
+# 48번 - 정수 2개 입력받아 비교
+a, b = map(int, input().split())
+# a가 b보다 작은 경우 True 를, 그렇지 않은 경우 False 를 출력
+a, b = map(int, input().split())
+if a < b:
+    print('True')
+else:
+    print('False')
+```
+
+```python
+# 49번 - 정수 2개 입력받아 비교
+a, b = map(int, input().split())
+if a == b:
+    print("True")
+else:
+    print('False')
+```
+
+```python
+# 50번 - 정수 2개 입력받아 비교
+a, b = map(int, input().split())
+if a <= b:
+    print('True')
+else:
+    print('False')
+```
+## 50번~51번
+
+```python
+# 51번 - 정수 2개 입력받아 비교
+a, b = map(int, input().split())
+if a != b:
+    print("True")
+else:
+    print("False")
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
 ```
 
 
 
-a
-print(type(f))
 
-git config user.email "cksthf321@gmail.com"
 
-https://github.com/cksthf3211/TIL.git
+
 

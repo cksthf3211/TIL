@@ -420,10 +420,206 @@ rev_xy =str(rev_x + rev_y)[::-1] # 321 + 1 = 322 == 223
 print(int(rev_xy))
 ```
 ```python
+# 10773번 - 제로
+#  0을 외쳐서, 가장 최근에 재민이가 쓴 수를 지우게 시킨다
+# 모든 수를 받아 적은 후 그 수의 합 출력
+# import sys
+# sys.stdin = open("제로.txt")
+# Tast_case = map(int, input())
+'''
+4 -> 입력 개수
+3
+0
+4
+0
+'''
+K = int(input())
+input_list = []
+for _ in range(K):
+    input_list.append(int(input()))
+# input1 = [3, 0, 4, 0]
+# input2 = [1, 3, 5, 4, 0, 0, 7, 0, ,0, 6]
 
+for elem in input2:
+    if elem != 0:
+        stack.append(elem)
+    else:
+        stack.pop()
+print(sum(stack)) 
 ```
 ```python
+# 2161번 - 카드1
+# 제일 위에 있는 카드를 바닥
+# 제일 위에 있는 카드를 제일 아래에 있는 카드 밑
+# 버린 카드들을 순서대로 출력하고, 마지막에 남게 되는 카드를 출력하는 프로그램을 작성
+---
+# 큐를 이용한 풀이
+n = int(input())
+queue = list(range(1, n+1))
+while len(queue) > 1:
+    print(queue.pop(0), end = " ")
+    queue.append(queue.pop())
+print(queue[0])    
+---
+# 덱을 이용한 풀이
+n = int(input())
+queue = deque(range(1, n+1))
+while len(queue) > 1:
+    print(queue.popleft(), end = " ")
+    queue.append(queue.popleft())
+print(queue[0])
+# 덱을 이용하면 속도가 빠름, 대부분 댁을 이용
+```
 
+```python
+# 2161번 - 카드1
+import sys
+sys.stdin = open('53_카드1.txt')
+from collections import deque
+n = int(input())
+queue = deque(range(1, n+1))
+while len(queue) > 1:
+    print(queue.popleft(), end = " ")
+    queue.append(queue.popleft())
+print(queue[0])
+```
+```python
+# 23253번 - 자료구조는_정말_최고야
+# 나머지 과목의 교과서 N권을 방 구석에 M개의 더미로 아무렇게나 쌓아둠
+# 팽개쳤던 나머지 과목의 교과서를 정리하고 번호순으로 나열
+# 1부터 N까지의 번호
+# 각 더미의 맨 위에 있는 교과서만 꺼낼 수 있으며, 반드시 교과서를 꺼낸 순서대로 나열
+# 번호순으로 나열하기 위해서는 1번, 2번, … N−1번, N번 교과서 순으로 꺼내야 한다.
+# 번호순으로 나열할 수 있는지 여부를 알려주는 프로그램을 작성해 주자.
+# 첫째 줄 교과서의 수 N, 교과서 더미의 수 M
+# 둘째 줄부터 2×M줄에 걸쳐 각 더미의 정보
+# i번째 더미를 나타내는 첫 번째 줄에는 더미에 쌓인 교과서의 수 ki가 주어지며, 두 번째 줄에는 ki개의 정수가 공백으로 주어짐
+# 각 정수는 교과서의 번호이며, 아래에 있는 교과서의 번호부터 주어진다.
+# 교과서의 번호는 1$1$부터 N$N$까지의 정수가 한 번씩만 등장
+import sys
+sys.stdin = open('54_자료구조는_정말_최고야.txt')
+
+n, m = map(int, input().split())
+chk = True
+for _ in range(m):
+    n = int(input())
+    lst = list(map(int, input().split()))
+    if chk:
+        while len(lst) > 0:
+            tmp = lst.pop()
+        if lst:
+            if tmp > lst[-1]:
+                chk = False
+                break
+    else:
+        break
+if chk:
+    print("Yes")
+else:
+    print("No")
+```
+```python
+# 9012번 - 괄호
+# 두 개의 괄호 기호인 ‘(’ 와 ‘)’ 만으로 구성되어 있는 문자열
+# 한 쌍의 괄호 기호로 된 “( )” 문자열은 기본 VPS
+# x가 VPS 라면 이것을 하나의 괄호에 넣은 새로운 문자열 “(x)”도 VPS
+# 두 VPS x 와 y를 접합(concatenation)시킨 새로운 문자열 xy도 VPS
+#  “(())()”와 “((()))” 는 VPS 이지만 “(()(”, “(())()))” , 그리고 “(()” 는 모두 VPS 가 아닌 문자열
+# VPS 인지 아닌지를 판단해서 그 결과를 YES 와 NO
+T = int(input())
+for i in range(T):
+    stack = input()
+    stack_list = list(stack)
+    sum = 0
+    for i in stack_list:
+        if i == '(':
+            sum += 1
+        elif i == ')':
+            sum -= 1
+        if sum < 0:
+            print('No')
+            break
+    if sum > 0:
+        print('No')
+    elif sum == 0:
+        print('No')
+---
+T = int(input())
+for i in range(T):
+    stack = []
+    stack_list = input()
+    for i in stack_list:
+        if i == ')':
+            stack.append(i)
+        elif i == '(':
+            if stack:
+                stack.pop()
+            else:
+                print('No')
+                break
+   else:            
+        if not stack:
+            print('Yes')
+        else:
+            print('No')
+---
+import sys #많은 양의 괄호를 불러오기 때문에
+t =int(input()) #test case
+for i in range(t):
+    stack = []
+    paren = sys.stdin.readline().strip() #리스트 값으로 받았는데 구글링 해보니 그냥 input을 받음
+
+    for j in paren:
+        if j == '(':
+            stack.append(j) #( 가 있으면 추가
+        elif j == ')': #) 가 있으면 제거 => ()VPS 가 완성되면 되기 때문 
+            if stack :
+                stack.pop()
+            else :
+            print('NO') # 둘 다 아니라면 문자열이므로 NO 출력
+            break #break도 안 쓰고 냅다 if랑 else만 써서 답이 안 나옴
+    else: #내가 틀린 부분 -> 여기서 else 안에 if문을 넣어야함 #break가 끊기지 않았을 때 
+        if not stack:
+            print('YES') #break로 끊기지 않고 스택이 비어있으면 VPS맞음 
+        else :
+            print('NO') #break가 안 걸려도 스택에 괄호가 있으면 문자열이므로 NO
+```
+
+```python
+# 10546번 - 배부른 마라토너
+import   sys
+
+sys.stdin = open('60_배부른마라토너.txt')
+
+n = int(input())
+# person : 참가한 사람들의 dict
+# finish : 완주한 사람들의 dict
+person = dict()
+finish = dict()
+answer = ""
+for i in range(n):
+    name = input().rstrip()
+    if name in person:
+        person[name] += 1
+    else:
+        person[name] = 1
+for i in range(n-1):
+    name = input().rstrip()
+    if name in finish:
+        finish[name] += 1
+    else:
+        finish[name] = 1
+for n in person.keys():
+#  참가자에는 있지만 완주자에는 없다면 해당 키가 정답
+    if n not in finish :
+        answer = n
+        break
+    else:
+#  참가자의 value와 완주자의 value가 다르다면 해당 키가 정답
+        if person[n] != finish[n]:
+            answer = n
+            break
+print(answer)
 ```
 ```python
 
