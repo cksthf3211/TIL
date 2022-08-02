@@ -517,6 +517,15 @@ if chk:
     print("Yes")
 else:
     print("No")
+---
+stack = [ 11, 10, 8, 5]
+comparion = stack.pop()
+while len(stack) ~= 0:
+    if top > comparion:
+        comparion = stack.pop()
+    else:
+        answer = "No"
+        break
 ```
 ```python
 # 9012번 - 괄호
@@ -620,6 +629,117 @@ for n in person.keys():
             answer = n
             break
 print(answer)
+```
+```python
+input = sys.stdin.readline
+```
+```python
+# 1269번 - 대칭 차집합
+import   sys
+sys.stdin = open('61_대칭차집합.txt')
+ 
+# 대칭 차집합의 원소의 개수를 출력
+# 두 집합 A와 B가 있을 때, (A-B)와 (B-A)의 합집합을 A와 B의 대칭 차집합
+# set 자료형을 정말 유용하게 사용하는 경우는 교집합, 합집합, 차집합을 구할 때
+# set는 순서가 없고, 고유한 값, 값이 변하는 객체(mutable)
+a, b = map(int, input().split())
+a = set(map(int, input().split())) # set를 이용해 교집합을 구한다.
+b = set(map(int, input().split())) # set를 이용해 교집합을 구한다.
+
+print(len(a-b) + len(b-a)) # a, b에 대해 a-b와 b-a의 길이를 더 해주면 된다.
+# print(len(a^b))                  # 대칭 차집합 구하기
+```
+```python
+# 11286번 - 절댓값 힙
+import sys
+sys.stdin = open('62_절댓값힙.txt')
+import heapq  # 최소 힙(min heap) 자료구조
+from sys import stdin
+
+n = int(stdin.readline())
+heap=[] # heapq 모듈을 이용함으로써 리스트를 최소 힙처럼 다룸
+for _ in range(n):
+    x = int(stdin.readline())
+    if x == 0:
+        if heap:
+            print(heapq.heappop(heap)[1]) # heappop(), 대상리스트를 넘기면 가장 작은 원소를 삭제하고 값을 리턴
+        else:
+            print(0)
+        else:
+            heapq.heappush(heap, (abs(x),x))  \# heappush(), 첫번째 인자는 원소를 추가할 대상 리스트, 두번째 인자는 추가할 원소
+```
+```python
+# 2750번 - 수 정렬하기
+import   sys
+sys.stdin = open('64_수정렬하기.txt') 
+
+n = int(input())
+list = [] # 숫자들을 담기 위한 리스트
+for i in range(n):            # 리스트에 n개의 숫자들을
+    list.append(int(input())) # input 추가하여
+list.sort() # 오름차순 정렬
+for i in list:          # 리스트에 정렬된 n개의 숫자들을
+    print(i)         # 출력하기
+```
+```python
+# 4949번 - 균형잡힌 세상
+while True:
+    str = input()
+    if str == '.': # 종료 조건을 만나면
+        break      # break해준다
+    stack = []     # stack 리스트에 발생 시작되는 괄호 저장
+    temp = True    # temp = 임시저장공간 변수
+    for i in str:    # 문자열 str에서 괄호 검사
+        if i == '(' or i == '[': # ( 또는 \[
+            stack.append(i)# stack 리스트에 발생 시작되는 괄호 저장
+        elif i == ')': # elif를 이용해 ) 검사
+            if not stack or stack[-1] == '[': # 검사를 해주어 대괄호가 오면 스택을 비워나감
+                temp = False  # 스택이 비워져있거나 마지막이 짝이 안맞는다면 temp를 False로 바꿔주고
+                break  # break 해준다
+            elif stack[-1] == '(': # 검사하여 소괄호가 나오면 스택을 비움
+                stack.pop()   # pop를 이용해 요소 삭제
+        elif   i == ']': #
+            if not stack or stack[-1] == '(': #
+                temp = False   #
+                break  #
+            elif   stack[-1] == '[': #
+                stack.pop()                      #
+    if temp == True and not stack: # temp가 True이거나 stack 리스트가 비어있으면
+        print('yes') # Yes 출력
+    else:            # 그렇지 않으면
+        print('no')  # No 출력
+```
+```python
+def solution(s):
+    word = s
+    dic_ = { '0' : 'zero', '1' : 'one', '2' : 'two', '3' : 'three', '4' : 'four', '5' : 'five', '6' : 'six', '7' : 'seven', '8' : 'eight', '9' : 'nine' }
+    for key, value in dic_.items(): #여기서부터 구글링 key값만 어떻게 출력하는지 모르겠어서,, #items는 key와 value를 튜플로 묶은 값
+        word = word.replace(value, key)
+        return int(word)
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
 ```
 ```python
 

@@ -500,7 +500,7 @@ if a <= b:
 else:
     print('False')
 ```
-## 50번~51번
+## 51번~60번
 
 ```python
 # 51번 - 정수 2개 입력받아 비교
@@ -510,29 +510,232 @@ if a != b:
 else:
     print("False")
 ```
-
 ```python
-
-```
-
-```python
-
-```
-
-```python
-
+# 52번 - 정수 입력받아 참 거짓 평가
+n = int(input())  
+print(bool(n))
 ```
 ```python
-
+# 53번 - 참 거짓 바꾸기
+a = bool(int(input()))
+# 위는 input( ), int( ), bool( ) 순서로 한 번에 한 단계씩 계산/처리/평가
+print(not a)
 ```
 ```python
-
+# 54번 - 둘 다 참일 경우만 참 출력
+a, b = input().split()
+# and 예약어는 주어진 두 불 값이 모두 True 일 때에만 True 로 계산하고, 나머지 경우는 False
+print(bool(int(a)) and bool(int(b)))
+---
+a, b = map(int, input().split())
+print(bool(a) and bool(b))
 ```
 ```python
+# 55번 - 하나라도 참이면 참 출력
+a, b = map(int, input().split())
+print(bool(a) or bool(b))
+```
+```python
+# 56번 - 참/거짓이 서로 다를 때에만 참 출력
+a, b = map(int, input().split())
+c = bool(a) # True
+d = bool(b)  # True
+print((c and (not d)) or ((not c) and d))
+# c and (not d)는 c가 True일 때, d는 False = False
+# (not c) and d는 c가 False일 때, d는 True = False
+# a, b 둘다 참이기 때문에 False 출력
+---
+a, b = map(int, input().split())
+if (bool(a) ^ bool(b) == True):
+    print("True")
+else:
+    print("False")
+```
+```python
+# 57번 - 참/거짓이 서로 같을 때에만 참 출력
+a, b = map(int, input().split())
+c = bool(a) # False
+d = bool(b) # False
+print(a==b)
+---
+a, b = map(int, input().split())
+if (bool(a) ^ bool(b) == True):
+    print("False")
+else:
+    print("True")
+```
+```python
+# 58번 - 둘 다 거짓일 경우만 참 출력
+a, b = map(int, input().split())
+c = bool(a) # False
+d = bool(b) # False
+print(not (c or d))
+---
+a, b = map(int, input().split())
+if ((bool(a)) ^ (bool(b)) == True):
+    print('False')
+else:
+    print('True')
+---
+a, b = map(int, input().split())
+a, b = bool(a), bool(b)
 
+if (a == False and b == False):
+    print("True")
+else:
+    print("False")
+```
+```python
+# 59번 - 비트단위로 NOT 하여 출력
+# ~ (bitwise not)
+# & (bitwise and)
+# | (bitwise or)
+# ^ (bitwise xor),  
+# << (bitwise left shift)
+# >> (bitwise right shift)
+n = int(input())
+print(~~n)
+```
+```python
+# 60번 - 비트단위로 AND 하여 출력
+a, b = map(int, input().split())
+# &(엠퍼센드)는 둘 다 1인 부분의 자리만 1로 만들어주는 것과 같다
+print(a&b)
 ```
 
+## 61번~70번
+```python
+# 61번 - 비트단위로 OR 하여 출력
+# | 은 파이프(pipe)연산자
+a, b = map(int, input().split())
+# or 연산은 둘 중 하나라도 1인 자리를 1로 만들어주는 것과 같다
+print(a | b)
+```
+```python
+# 62번 - 
+```
+```python
+# 63번 - 
+```
+```python
+# 64번 - 
+```
+```python
+# 65번 - 
+```
+```python
+# 66번 - 
+```
+```python
+# 67번 - 
+```
+```python
+# 68번 - 
+```
+```python
+# 69번 - 
+```
+```python
+# 70번 - 
+```
 
+## 71번~80번
+```python
+# 71번 - 
+```
+```python
+# 72번 - 
+```
+```python
+# 73번 - 
+```
+```python
+# 74번 - 
+```
+```python
+# 75번 - 
+```
+```python
+# 76번 - 
+```
+```python
+# 77번 - 
+```
+```python
+# 78번 - 
+```
+```python
+# 79번 - 
+```
+```python
+# 80번 - 
+```
+
+## 81번~90번
+```python
+# 81번 - 
+```
+```python
+# 82번 - 
+```
+```python
+# 83번 - 
+```
+```python
+# 84번 - 
+```
+```python
+# 85번 - 
+```
+```python
+# 86번 - 
+```
+```python
+# 87번 - 
+```
+```python
+# 88번 - 
+```
+```python
+# 89번 - 
+```
+```python
+# 90번 - 
+```
+
+## 91번~100번
+```python
+# 91번 - 
+```
+```python
+# 92번 - 
+```
+```python
+# 93번 - 
+```
+```python
+# 94번 - 
+```
+```python
+# 95번 - 
+```
+```python
+# 96번 - 
+```
+```python
+# 97번 - 
+```
+```python
+# 98번 - 
+```
+```python
+# 99번 - 
+```
+```python
+# 100번 - 
+```
+
+## Review
 
 
 
