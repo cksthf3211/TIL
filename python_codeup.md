@@ -612,42 +612,193 @@ a, b = map(int, input().split())
 print(a | b)
 ```
 ```python
-# 62번 - 
+# 62번 - 비트단위로 XOR 하여 출력
+a, b = map(int, input().split())
+print(a ^ b)
 ```
 ```python
-# 63번 - 
+# 63번 - 정수 2개 입력받아 큰 값 출력
+a, b = map(int, input().split())
+print( a if (a > b) else b)
 ```
 ```python
-# 64번 - 
+# 64번 - 정수 3개 입력받아 가장 작은 값 출력
+a, b, c = map(int, input().split())
+d = a if a < b else c
+print(d if d < c else c)
+---
+a, b, c = map(int, input().split())
+result = (a if a < b else b) if a < c else (c if c < b else b)
+print(result)
+---(여기서 띠용 했음)
+a, b, c = map(int, input().split())
+print(min(a,b,c))
+---
+a, b, c = map(int, input().split())
+d = a if a < b else b
+e = d if d < c else c
+
+print(e)
 ```
 ```python
-# 65번 - 
+# 65번 - 정수 3개 입력받아 짝수만 출력
+a, b, c = map(int, input().split())
+if a % 2 == 0:
+    print(a)
+if b % 2 == 0:
+    print(b)
+if c % 2 == 0:
+    print(c)
+---
+print(*(filter(lambda x: not x % 2, [a, b, c])))
 ```
 ```python
-# 66번 - 
+# 66번 - 정수 3개 입력받아 짝/홀 출력
+a, b, c = map(int, input().split())
+if a % 2 == 0:
+    print('짝')
+else:
+    print('홀')
+if b % 2 == 0:
+    print('짝')
+else:
+    print('홀')
+if c % 2 == 0:
+    print('짝')
+else:
+    print('홀')
+---
+print(*map(lambda num: 'even' if not num % 2 else 'odd', [a, b, c]))
 ```
 ```python
-# 67번 - 
+# 67번 - 정수 1개 입력받아 분류
+# 음수이면서 짝수이면, A  
+# 음수이면서 홀수이면, B  
+# 양수이면서 짝수이면, C  
+# 양수이면서 홀수이면, D
+n = int(input())
+if n < 0:
+    if n % 2 == 0:
+        print('A')
+    elst:
+        print('B')
+if n > 0:
+    if n % 2 == 0:
+        print('C')
+    else:
+        print('D')
 ```
 ```python
-# 68번 - 
+# 68번 - 점수 입력받아 평가 출력
+# 90 ~ 100 :A  
+# 70 ~ 89 : B  
+# 40 ~ 69 : C  
+# 0 ~ 39 :  D
+n = int(input())
+if n  >= 90:
+    print('A')
+else:
+    if n >= 70:
+        print('B')
+    else:
+        if n >= 40:
+            print('C')
+        else:
+            print('D')
+---
+n = int(input())
+if n  >= 90:
+    print('A')
+elif n >= 70:
+    print('B')
+elif n >= 40:
+    print('C')
+else:
+    print('D')
+# elif 를 사용하면 if ... else ... 구조를 겹쳐 사용할 때처럼, 여러 번 안 쪽으로 들여쓰기 하지 않아도 된다.
+# elif는 else if 의 짧은 약어
 ```
 ```python
-# 69번 - 
+# 69번 - 평가 입력받아 다르게 출력
+# A = best!!!
+# B = good!!
+# C = run!
+# D = slowly~
+# E = what?
+chr = input()
+if chr  == 'A':
+    print('best!!!')
+elif chr == 'B':
+    print('good!!')
+elif chr == 'C':
+    print('run!')
+elif chr == 'D':
+    print('slowly~')
+else:
+    print('what?')
 ```
 ```python
-# 70번 - 
+# 70번 - 월 입력받아 계절 출력
+# 월이 입력될 때 계절 이름이 출력
+---( 틀림 )
+n = int(input())
+if n // 3 == 1:
+    print("spring")
+elif n // 6 == 1:
+    print('summer')
+elif n // 9 == 1:
+    print('winter')
+else:
+    print('fall')
+---( 틀림 )
+n = int(input())
+if n // 3 == 1:
+    print("spring")
+else:
+    if n // 6 == 1:
+        print('summer')
+    else:
+        if n // 9 == 1:
+            print('winter')
+        else:
+            print('fall')
+---( 풀이 )
+n = int(input())
+
+if a == 12 or a == 1 or a == 2:
+    print("winter")
+elif a == 3 or a == 4 or a == 5:
+    print("spring")
+elif a == 6 or a == 7 or a == 8:
+    print("summer")
+elif a == 9 or a == 10 or a == 11:
+    print("fall")
 ```
 
 ## 71번~80번
 ```python
-# 71번 - 
+# 71번 - 0 입력될 때까지 무한 출력
+n = 1
+while n != 0:
+    n = int(input())
+    if n != 0:
+        print(n)
 ```
 ```python
-# 72번 - 
+# 72번 - 정수 1개 입력받아 카운트다운 출력
+n = int(input())
+
+while n!=0:   # n가 0이 아니라면
+    print(n)  # n 출력
+    n = n - 1 # n가 1씩 감소 - 결과적으로 0이 되면 출력하지 않음
 ```
 ```python
-# 73번 - 
+# 73번 - 정수 1개 입력받아 카운트다운 출력
+n = int(input())
+    
+while n != 0:
+    n -= 1   # 5라고 가정하면 4 출력
+    print(n) # 1이라고 가정하면 0출력으로 종료 
 ```
 ```python
 # 74번 - 

@@ -718,19 +718,101 @@ def solution(s):
         return int(word)
 ```
 ```python
-
+# 1236번 - 성지키기
+import sys
+sys.stdin = open('69_성지키기.txt')
+from pprint import pprint
+n, m = map(int, input().split())
+matrix = [list(map(int, input().split())) for i in range(n)]
+pprint(matrix)
+---
+n,m = map(int,input().split())
+castle=[]
+for _ in range(n):
+    castle.append(input())   
+row = []
+col = []
+for i in range(n):
+    row.append("X" not in castle[i])        
+for j in range(m):
+    col.append("X" not in [castle[i][j] for i in range(n)])            
+print(max(sum(row),sum(col)))
 ```
 ```python
+# 5533번 - 유니크
+# 1이상 100 이하의 정수
+# 각 플레이어는 자신과 같은 수를 쓴 사람이 없다면, 자신이 쓴 수와 같은 점수를 얻는다. 만약, 같은 수를 쓴 다른 사람이 있는 경우에는 점수를 얻을 수 없다.
+# 게임을 3번 했다.
+# 3번 게임에서 얻은 총 점수를 구하는 프로그램을 작성
+import sys
+sys.stdin = open('70_유니크.txt')
 
+n = int(input())
+
+first = []
+second = []
+third = []
+for i in range(n):
+    a, b, c = map(int, input().split())
+first.append(a)
+second.append(b)
+third.append(c)
+for j in range(n):
+    score = 0
+    if first.count(first[j]) == 1:
+        score += first[j]
+    if second.count(second[j]) == 1:
+        score += second[j]
+    if third.count(third[j]) == 1:
+        score += third[j]
+print(score)
 ```
 ```python
-
+# 2167번 - 2차원 배열의 합
+# (i, j) 위치부터 (x, y) 위치까지에 저장되어 있는 수들의 합
+# i행 j열
+# 배열의 크기 N, M
+# K개의 줄에는 네 개의 정수로 i, j, x, y
+# K개의 줄에 순서대로 배열의 합을 출력
+n, m = map(int, input().split())
+arr = [list(map(int, input().split())) for _ in range(n)]
+memo = [[0] * (m+1) for _ in range(n+1)]
+ 
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        memo[i][j] = arr[i-1][j-1] + memo[i][j-1] + memo[i-1][j] - memo[i-1][j-1]
+ 
+k = int(input())
+for _ in range(k):
+    i, j, x, y = map(int, input().split())
+    print(memo[x][y] - memo[i-1][y] - memo[x][j-1] + memo[i-1][j-1])
 ```
 ```python
-
+# 1100번 - 하얀 칸
+# 체스판은 8×8크기
+# 가장 왼쪽 위칸 (0,0)은 하얀색
+# 하얀 칸 위에 말이 몇 개 있는지 출력하는 프로그램을 작성
+# 첫째 줄부터 8개의 줄에 체스판의 상태가 주어진다. ‘.’은 빈 칸이고, ‘F’는 위에 말이 있는 칸
+chess = []
+for _ in range(8):
+    chess.append(list(map(str, list(input()))))
+answer = 0
+for i in range(8):
+    for j in range(8):
+        if (i + j) % 2 == 0:       #하얀칸일 경우
+            if chess[i][j] == 'F': #F있을 경우
+                answer += 1
+print(answer)
+---
+import sys
+input = sys.stdin.readline
 ```
 ```python
-
+# 5와 6의 차이
+a, b = input().split() #a와 b를 input 받음(map사용 X => 정수일 필요가 없음) str로 map 써도 됨 #replace는 문자열만 가능
+min = int(a.replace('6', '5')) + int(b.replace('6', '5')) #6은 5로 바꾸고(5가 더 작기 때문에 최솟값)
+max = int(a.replace('5', '6')) + int(b.replace('5', '6')) #5는 6으로 바꿈
+print(min, max)
 ```
 ```python
 
