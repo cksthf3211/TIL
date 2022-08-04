@@ -801,16 +801,44 @@ while n != 0:
     print(n) # 1이라고 가정하면 0출력으로 종료 
 ```
 ```python
-# 74번 - 
+# 74번 - 문자 1개 입력받아 알파벳 출력
+c = ord(input())     # c = 입력받을 문자
+t = ord('a')         # t = a부터
+while t <= c:        # a부터 입력받은 문자가 같거나 클때까지
+    print(chr(t), end = '')  # a부터 출력
+    t += 1                   # 하나씩 커짐(아스키 코드 65)
 ```
 ```python
-# 75번 - 
+# 75번 - 정수 1개 입력받아 그 수까지 출력
+n = int(input())
+a = int(0)
+while a <= n:
+    print(a, end = '\n')
+    n += 1
 ```
 ```python
-# 76번 - 
+# 76번 - 정수 1개 입력받아 그 수까지 출력
+n = int(input())
+for i in range(n+1): # range(n)에 들어있는(in) 각각의 수에 대해서(for) 순서대로 i에 저장
+    print(i)
 ```
 ```python
-# 77번 - 
+# 77번 - 짝수 합 구하기
+n = int(input())  # 6
+s = 0
+for i in range(1, n+1) :
+  if i%2==0:      # 2 4 6
+    s += i
+   
+print(s)          # 12
+---(While문으로 작성하기 연습)
+n = int(input())
+n1 = 0
+sum = 0
+while n1 <= n:
+    sum = sum + n1
+    n1 = n1 + 2
+print(sum)
 ```
 ```python
 # 78번 - 
