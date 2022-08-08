@@ -841,10 +841,36 @@ while n1 <= n:
 print(sum)
 ```
 ```python
-# 78번 - 
+# 78번 - 원하는 문자가 입력될 때까지 반복 출력
+while True:       # 조건이 True면 밑에 내용 실행
+    x = input()   # x가 input()으로 주어짐
+    print(x)      # 조건이 참이면 주어진 input을 실행
+    if x == 'q':  # 주어진 input이 q를 만나게 된다면
+        break     # break 멈춤 실행
+---
+word = ""          # 입력 값을 n 변수 지정
+while word != "q": # while문을 사용해서 "word가 "q"와 같지 않을 때만 반복실행
+    word = input() # while문이 시작되면 input()을 받아서 word에 넣는다
+    print(word)    # word가 출력되다가 "q"를 입력받으면 while문은 종료
 ```
 ```python
-# 79번 - 
+# 79번 - 언제까지 더해야 할까?
+n = int(input())    # 정수를 받아옴
+s = 0               # 더할 값 
+t = 0               # 시작 값
+    while s < n:    # s가 n보다 같거나 작을 때
+        t = t + 1   # 시작값이 1씩 커짐  - 1 (0부터 시작이니까)
+        s = s + t   # 시작값 + 1 ~ n까지 순서대로 더함
+print(t)            # 주어진 n보다 s가 작을 때 까지 시작값에 1씩 더한 것을 출력
+---
+n = int(input())   # 정수를 받아옴
+a = 1              # 1부터 더하고 출력 할 시작 값
+b = 1
+while True:        # 조건이 참이면 실행
+    if a < n:      # a가 n보다 같거나 작을때까지
+        b = b + 1
+        a = a + b  # 1는 다음 숫자를 하나씩 더함
+print(b)
 ```
 ```python
 # 80번 - 

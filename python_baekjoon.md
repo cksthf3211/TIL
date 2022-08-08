@@ -866,5 +866,112 @@ for row in paper:
 print(answer)
 ```
 ```python
+# 3046번 - R2
+# R2를 까먹고, R1과 S는 기억
+# R2가 몇 인지 구하는 프로그램을 작성
+r1, s = map(int, input().split())
+r2 = (s * 2) - r1
+print(r2)
+# s = (r1 + r2 / 2)
+# r2 = (s * 2) - r1
+```
+
+```python
+# 9325번 - 얼마?
+# 모든 옵션이 주어진 자동차를 구매하는데 필요한 액수를 계산
+# t = 테스트 케이스의 개수
+# s = 첫줄 자동차 가격
+# n = 둘째 줄 서로 다른 옵션의 개수
+# q = 사려고 하는 특정 옵션의 개수
+# p = 해당 옵션의 가격
+# 최종적으로 구매하려는 자동차의 가격을 한줄씩 출력
+t = int(input()) # 2
+for i in range(t):
+    s = int(input())
+    n = int(input())
+    price = s
+    for i in range(n):
+        q ,p = map(int, input().split())
+        price += q * p
+        
+    print(price)
+```
+
+```python
+# 1453번 - 피시방 알바
+# 피시방에는 1번부터 100번까지
+# 들어오면서 번호를 말한다.
+# 없으면 그 손님은 컴퓨터를 할 수 있고, 사람이 있다면 거절
+# 거절당하는 사람의 수를 출력하는 프로그램을 작성
+n = int(input())  # 테스트케이스
+fish_room = list(map(int, input().split())) # 피시방을 리스트로 만듬
+spot = [0] * 101  # pc방 자리
+refused = 0       # 거절당함
+for i in range(fish_room):
+    if spot[i] != 0:
+        refused += 1
+    else:
+        spot[i] += 1
+print(refused)        
+```
+
+```python
+# 11170번 - 0의 개수
+t = int(input())
+for _ in range(t):
+    count = 0
+    n, m = map(int, input().split())
+    for i in range(n, m + 1):
+        for j in len(str(i)):
+            if j == '0':
+                count += 1
+    print(count)
+```
+
+```python
+# 2798번 - 블랙잭
+# 카드의 합이 21을 넘지 않는 한도 내에서, 카드의 합을 최대한 크게 만드는 게임
+# n, m = 카드의 개수, 합
+# 첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력
+n, m = map(int, input().split()) # 테스트 케이스 윗줄 개수와 합을 할당
+num = list(map(int, input().split()))
+l = len(num)
+max_total = 0
+# 완전탐색
+for i in range(0, l-2):
+    for j in range(i + 1, l - 1):
+        for k in range(j + 1, l):
+            if(num[i] + num[j] + num[k] > m):
+                continue
+            else:
+                max_total = max(max_total, num[i] + num[j] + num[k])
+print(max_total)
+---
+from itertools import permutations
+    
+n, m = map(int, input().split())
+    
+num = list(map(int, input().split()))
+permutationArray = permutations(num, 3)
+ans = 0
+for i in permutationArray:
+    if(m+1 > sum(i)):
+        ans = max(ans, sum(i))
+print(ans)
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
 
 ```
