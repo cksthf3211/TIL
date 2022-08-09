@@ -959,6 +959,56 @@ for i in permutationArray:
         ans = max(ans, sum(i))
 print(ans)
 ```
+```python
+# 1264번 - 모음의 개수
+# 모음의 개수를 세는 프로그램을 작성
+# 모음은 'a', 'e', 'i', 'o', 'u'이며 대문자 또는 소문자
+# isupper, islower
+vowels = ['a','e','i','o','u'] #모음 리스트 만들기
+
+whileTrue:
+    stc = list(input().lower())  #소문자 형태로 문장 input 받음
+    cnt = 0  #모음의 개수
+       if stc[0] == '#': #첫번째 인덱스에 #있으면 종료
+           break
+       for i in stc:
+           if i in vowels:  #변수 i가 모음리스트에 있으면
+               cnt += 1
+    print(cnt)
+```
+```python
+# 9610번 - 사분면
+# 첫째 줄에 점의 개수 n
+# n개 줄에는 점의 좌표 (xi, yi)
+Q = [0]*5
+for i in range(int(input())):
+    x, y = map(int,input().split())
+    if x==0 or y==0:
+        Q[4] += 1
+        continue
+    if x > 0:
+            if y > 0:
+                Q[0] += 1
+            else:
+                Q[3] += 1
+            else: 
+                if y > 0:
+                    Q[1] += 1
+                else: 
+                    Q[2] += 1 
+print(f"Q1: {Q[0]}\nQ2: {Q[1]}\nQ3: {Q[2]}\nQ4: {Q[3]}\nAXIS: {Q[4]}")
+```
+```python
+# 2587번 - 대푯값2
+# 중앙값은 주어진 수를 크기 순서대로 늘어 놓았을 때 가장 중앙에 놓인 값
+# 첫째 줄에는 평균, 둘째 줄에는 중앙값 출력
+x = []
+for i in range(5):
+    x.append(int(input()))
+    x.sort()
+print(int(sum(x)/5))
+print(x[2])
+```
 
 ```python
 
