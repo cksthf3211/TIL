@@ -1009,19 +1009,114 @@ for i in range(5):
 print(int(sum(x)/5))
 print(x[2])
 ```
+```python
+# 10101번 - 삼각형외우기
+a = int(input())                      # 각 a
+b = int(input())                      # 각 b
+c = int(input())                      # 각 c
 
+if a == b == c == 60:                 # 세 각의 크기가 모두 60이면
+    print(' Equilateral')             # Equilateral
+
+elif a + b + c == 180:                # 세 각의 합이 180이고
+    if a == b or b == c or c == a:    # 두 각이 같은 경우에는
+        print('Isosceles')            #  Isosceles
+
+    else:
+        print('Scalene')              # 같은 각이 없는 경우에는 Scalene
+
+else:
+    print('Error')                    # 세 각의 합이 180이 아닌 경우에는 Error
+```
+```python
+# 1598번 - 꼬리를 무는 숫자 나열
+# 놀이의 방법은 간단하다. 일단 4줄짜리 표에 왼쪽부터 수를 아래로 1부터 순서대로
+# 두 개의 자연수 사이의 직각거리
+# 직각거리를 구하는 프로그램을 작성
+a, b = map(int, input().split())        # 두 자연수
+x = abs(((a-1) // 4) - ((b-1) // 4))    # x좌표 거리(4로 나눈 몫)
+y = abs(((a-1) % 4) - ((b-1) % 4))      # y좌표 거리(4로 나눈 나머지)
+print(x + y)                            # 직각거리는 x + y
+```
+```python
+# 5576번 - 콘테스트
+# 0 명 중 득점이 높은 사람에서 3 명의 점수를 합산하여 대학의 득점
+# W 대학과 K 대학의 컴퓨터 클럽
+# W 대학 및 K 대학 참가자의 점수 데이터가 주어진다. 이때, 각각의 대학의 점수를 계산하는 프로그램을 작성
+# 입력은 20 행
+# 1 번째 줄부터 10 번째 줄에는 W 대학의 각 참가자의 점수
+# 11 번째 줄부터 20 번째 줄에는 K 대학의 각 참가자의 점수
+# W 대학 점수와 K 대학의 점수를 순서대로 공백으로 구분
+# 리스트.sort() 는 본체의 리스트를 정렬해서 변환
+# sorted(리스트)는 본체 리스트는 내버려두고, 정렬한 새로운 리스트를 반환
+
+W = sorted([int(input())for _ in range(10)])[7:]
+K = sorted([int(input())for _ in range(10)])[7:]
+print(sum(W), sum(K))
+---
+w = []
+k = []
+for i in range(0, 10):
+    a = int(input())
+    w.append(a) 
+for i in range(0, 10):
+    b = int(input())
+    k.append(b)
+w.sort(reverse=True)
+k.sort(reverse=True)
+wsum = 0
+ksum = 0
+for i in range(0, 3):
+    wsum += w[i]
+    ksum += k[i]
+print(wsum, ksum)
+```
+```python
+# 14467 - 소가 길을 건너간 이유1
+result = ['a','e','i','o','u']  # 리스트 형태
+while True:
+    count = 0 
+    s = list(input().lower()) # 리스트, 소문자 형태로 받기.
+
+    # s = list(input().upper()) #이렇게 바로 upper 한다면 값이 0이 나온다. result에 대문자가 없기 때문
+    # print(s) 
+    if s[0] == '#': #만약 #이라면 break \[0\] => 첫글자
+        break
+    # s의 문자열에 result에 해당하는 문자열이 있을 경우 cnt 1씩 추가
+    for i in s:
+        if i in result:
+            count += 1
+    print(count)
+```
+```python
+# 10769번 - 행복한지 슬픈지
+# 승엽이의 문자가 오면 전체적인 분위기만 판단해서 알려주는 프로그램을 작성
+n = input()
+
+happy = n.count(':-)')
+sad = n.count(':-(')
+
+if happy == 0 and sad == 0:
+    print('non')
+elif happy == sad:
+    print('unsure')
+elif happy > sad:
+    print('happy')
+else:
+    print('sad')
+```
 ```python
 
 ```
-
 ```python
 
 ```
-
 ```python
 
 ```
+```python
 
+```
 ```python
 
 ```
