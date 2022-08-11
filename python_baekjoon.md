@@ -1106,6 +1106,132 @@ else:
     print('sad')
 ```
 ```python
+# 25304번 - 영수증
+# n = 구매한 각 물건의 가격(a)과 개수(n)
+# x = 구매한 물건들의 총 금액
+# 구매한 물건의 가격과 개수로 계산한 총 금액이 영수증에 적힌 총 금액과 일치하면 `Yes`를 출력한다. 일치하지 않는다면 `No`를 출력
+x = int(input())    # 총 금액
+n = int(input())    # 물건 종류 수
+c = []
+
+for i in range(n):
+    a, b = map(int,input().split())
+    c .append(a * b)
+
+s = sum(c)
+if s == x:
+    print('Yes')
+else:
+    print('No')
+```
+```python
+# 17388번 - 와글와글 숭고한
+# 숭실대학교(Soongsil University), 고려대학교(Korea University), 한양대학교(Hanyang University)
+# 세 대학교의 참여도의 합이 100 이상이면 일처리가 잘 되고 있기
+# 100 미만이면 창호는 참여도가 가장 낮은 대학의 동아리에게 무언의 압박
+# 압박이 필요가 없으면 (따옴표를 제외하고) “`OK`”를 출력
+# 압박이 필요한 동아리가 속한 대학의 영문 이름의 첫 단어를 출력
+
+s, k, h = map(int, input().split())
+sum = s + k + h
+
+if 100 <= sum:
+    print('OK')
+elif 100 > sum:
+    if s < k <= h or s < h <= k:
+        print('Soongsil')
+    elif k < s <= h or k < h <= s:
+        print('Korea')
+    else:
+        print('Hanyang')
+```
+```python
+# 2857번 - FBI
+# 5명의 요원 중 FBI 요원을 찾는 프로그램을 작성
+# FBI요원은 요원의 첩보원명에 FBI가 들어있다.
+# 5개 줄에 요원의 첩보원명
+# 첩보원명은 알파벳 대문자, 숫자 0~9, 대시 (-)로만 이루어져 있으며, 최대 10글자
+# 첫째 줄에 FBI 요원을 출력
+# 몇 번째 입력인지를 공백으로 구분하여 출력
+# FBI 요원이 없다면 "HE GOT AWAY!"를 출력
+FBI = []
+
+for i in range(1, 6):
+    name = input()
+    if 'FBI' in name:
+        FBI.append(i)
+if FBI:
+    print(*FBI)
+
+else:
+    print('HE GOT AWAY!')
+```
+```python
+# 2495번 - 연속구간
+# 여덟 자리의 양의 정수
+# 연속하여 같은 숫자가 나오는 것이 없으면 1을 출력
+# 있으면 같은 숫자가 연속해서 나오는 구간 중 가장 긴 것의 길이를 출력하는 프로그램을 작성
+for i in range(3):                # 각 줄에 하나씩 세 개의 양의 정수가 주어짐
+  num = list(input())             # 숫자 입력받아 배열로 나누기
+  arr = [num[0]]                  # 첫번째 숫자 담기
+  answer = [1]                    # 연속하여 같은 숫자가 나오는 것이 없으면 1을 출력하기 위해 1을 저장해둠
+  cnt = 1                         # arr에 숫자가 하나 담겼기 때문에 cnt에 1 저장
+
+  for j in range(1, 8):           # 숫자는 여덟 자리의 양의 정수기 때문에 7번 반복
+    if(arr[len(arr)-1]==num[j]):  # arr에 담겨있는 숫자와 현재 숫자가 같다면
+      cnt += 1                    # 일을 추가함
+
+    else:                         # 아니라면
+      arr.append(num[j])          # 그 수를 arr에 추가하고
+      answer.append(cnt)          # cnt값을 answer에 저장
+      cnt = 1                     # cnt는 1로 초기화
+  
+  answer.append(cnt)              # arr에 담겨있는 숫자와 현재 숫자가 같아 저장이 되지 않았을 cnt를 위해서 answer에 cnt추가
+
+  print(max(answer))              # 그 중 가장 큰 값을 출력하기 위해서 max 활용
+```
+```python
+# 2979번 - 트럭 주차
+# 주차장은 주차하는 트럭의 수에 따라서 주차 요금을 할인
+# 한 대를 주차할 때는 1분에 한 대당 A원
+# 두 대를 주차할 때는 1분에 한 대당 B원
+# 세 대를 주차할 때는 1분에 한 대당 C원
+# 주차 요금으로 얼마를 내야 하는지 구하는 프로그램을 작성
+parking = [0]*101
+a, b, c = map(int, input().split())             # 주차 요금 a, b, c
+
+for i in range(3):                              # 3줄
+    arrive, leave = map (int, input().split())  # 주차장 들어온 시간, 떠난 시간
+    for j in range(arrive-1, leave-1):
+        parking[j] += 1
+answer = 0
+for k in parking:
+    if k == 1:
+        answer += a*k
+    elif k == 2:
+        answer += b * k
+    elif k == 3:
+        answer += c * k    
+print(answer)
+```
+```python
+# 6996번 - 애너그램
+# 두 단어 A와 B
+# A에 속하는 알파벳의 순서를 바꾸어서 B를 만들 수 있다면, A와 B를 애너그램
+t = int(input())                                      # 테스트 케이스 수
+
+for i in range(t):
+    a, b = map(str, input().split())                  # 두 단어 a, b
+
+    x = sorted(list(a))                               # a의 단어를 오름차순으로 정리
+    y = sorted(list(b))                               # b의 단어를 오름차순으로 정리
+
+    if x == y:                                        # 두 단어가 같다면 순서를 바꾸어도 가능
+        print(f'{a} & {b} are anagrams.')
+    else:
+        print(f'{a} & {b} are NOT anagrams.')
+```
+```python
 
 ```
 ```python
