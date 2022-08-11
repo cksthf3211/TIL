@@ -1,13 +1,10 @@
-def factorial(x):
-    if x == 0:
-        return 1
+k = input().split(',')
+c = {}
+for i in range(k):
+    if i in c:
+        c[k] += 1
     else:
-        return x * factorial(x - 1)
-while True:
-    n = input('\n팩토리얼 구할 숫자는??')
-    if n.isnumeric():
-        res = factorial(int(n))
-        print(res)
-    else:
-        print('종료합니다.')
-        break
+        c[k] = 1
+print('\n------------카운팅결과출력-----------')
+for key1, value1 in c.items():
+    print('{0:40s}  {1:5s}  '.format(key1, str(value1)))
