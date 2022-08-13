@@ -873,30 +873,101 @@ while True:        # 조건이 참이면 실행
 print(b)
 ```
 ```python
-# 80번 - 
+# 80번 - 주사위 2개 던지기
+n, m= map(int,input().split())
+for i in range(1, n+1) :
+    for j in range(1, m+1) :
+        print(i, j)
 ```
 
 ## 81번~90번
 ```python
-# 81번 - 
+# 81번 - 16진수 구구단 출력
+n = int(input(), 16)
+for i in range(1, 16):
+    print('%X' %n, '*%X' %i, '=%X' %(n*i), sep='')
+---
+a = int(input(), 16) 
+for i in range(1, 16):
+    print(("%X" % a) + '*' \+ ('%X' % i) + '=' \+ ('%X' % (a*i)))
 ```
 ```python
-# 82번 - 
+# 82번 - 3 6 9 게임의 왕이 되자
+# 몫(//), 나머지(%), 나눈 값(/)
+a = int(input())
+
+for i in range(1, a+1):
+
+    if i % 10 == 3 or i % 10 == 6 or i % 10 == 9:
+        print('X', end = ' ')
+    else:
+        print(i, end = ' ')
 ```
 ```python
-# 83번 - 
+# 83번 - 빛 섞어 색 만들기
+r, g, b = map(int, input().split())
+cnt = 0
+for i in range(r):
+    for j in range(g):
+        for k in range(b):
+            cnt += 1
+            
+            print(i,j,k)
+print(c)
 ```
 ```python
-# 84번 - 
+# 84번 - 소리 파일 저장용량 계산
+# 1초 동안 마이크로 소리강약을 체크하는 횟수를 h
+# 한 번 체크한 값을 저장할 때 사용하는 비트수를 b
+# 좌우 등 소리를 저장할 트랙 개수인 채널 개수를 c
+# 녹음할 시간(초) s
+# 소수점 첫째 자리까지의 정확도로 출력하고 MB를 공백을 두고 출력
+h, b, c, s = map(int, input().split())
+
+f = (h *b * c * s / 8 / 1024 / 1024)
+a = round(f,1)
+print(f'{a} MB')
 ```
 ```python
-# 85번 - 
+# 85번 - 그림 파일 저장용량 계산
+# 이미지의 가로 해상도 w, 세로 해상도 h, 한 픽셀을 저장하기 위한 비트 b
+w, h, b = map(int, input().split())
+
+f = (w * h * b / 8 / 1024 / 1024)
+a = round(f,2)
+print(f'{a} MB')
+---
+a,b,c=input().split()
+
+W=int(a)
+H=int(b)
+B=int(c)
+
+print('%.2f MB' % (W\*H\*B/8/1024/1024))
 ```
 ```python
-# 86번 - 
+# 86번 - 거기까지! 이제 그만~
+n = int(input())
+s = 0
+c = 0
+while True:
+    s += c
+    c += 1
+    if n <= s:
+        break
+print(s)
 ```
 ```python
-# 87번 - 
+# 87번 - 3의 배수는 통과
+n = int(input())
+
+for i in range(1,n+1):
+    if i % 3 == 0:
+        continue             # #다음 반복 단계로 넘어간다.
+    else:
+        print(i, end = ' ')
+# continue 가 실행되면, 반복 블록 안에 있는 나머지 부분을 실행하지 않고, 다음 반복 단계로 넘어간다.  
+# 즉, 반복 블록의 나머지 부분은 실행되지 않고, 다음 단계의 반복을 계속(continue)하는 것
 ```
 ```python
 # 88번 - 

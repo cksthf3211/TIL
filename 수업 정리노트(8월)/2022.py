@@ -1,4 +1,7 @@
-import random
-my_list = [1, 2, 3, 4, 5]
-result = random.choice()
-print(my_list)
+n = int(input())
+
+for i in range(1,n+1):
+    if i % 3 == 0:
+        continue
+    else:
+        print(i, end = ' ')
