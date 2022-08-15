@@ -970,13 +970,48 @@ for i in range(1,n+1):
 # 즉, 반복 블록의 나머지 부분은 실행되지 않고, 다음 단계의 반복을 계속(continue)하는 것
 ```
 ```python
-# 88번 - 
+# 88번 - 수 나열하기1
+# 규칙에 따라 수를 순서대로 나열한 것을 수열(sequences)
+# 시작 값(a), 등차(d), 몇 번째인지(n)
+# n번째 수를 출력하는 프로그램
+a, d, n = map(int, input().split())
+
+for i in range(n - 1): # 0, 1, 2, 3, 4
+    a = a + d
+    print(a)
+---
+a,d,n=map(int, input().split())
+print(a+d*(n-1))
 ```
 ```python
-# 89번 - 
+# 89번 - 수 나열하기2
+a, r, n = map(int, input().split())
+for i in range(n-1):
+    a = a * r
+    print(a)
+---
+a, r, n = map(int, input().split()) # 2 3 7
+list = []
+for i in range(n-1):
+    a = a * r
+    list.append(a)
+print(max(list))
 ```
 ```python
-# 90번 - 
+# 90번 - 수 나열하기3
+# 시작 값(a), 곱할 값(m), 더할 값(d), 몇 번째인지(n)
+a, m, d, n = map(int, input().split())
+for i in range(n - 1):
+    a = a * m + d
+    c.append(a)
+    p = c.pop()
+print(p)
+---
+a,m,d,n = map(int,input().split())
+
+for i in range(1,n):
+    a = (m*a)+d
+print(a)
 ```
 
 ## 91번~100번
