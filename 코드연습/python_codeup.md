@@ -1016,19 +1016,59 @@ print(a)
 
 ## 91번~100번
 ```python
-# 91번 - 
+# 91번 - 함께 문제 푸는 날, 최소공배수
+# 3명이 같은 날 가입/등업하고, 각각 3일마다, 7일마다, 9일마다 한 번씩 들어온다면, 처음 가입하고 63일 만에 다시 3명이 함께 문제를 풀게 된다.
+# 
+a, b, c = map(int, input().split()) # 3 7 9
+d = 1
+while d % a != 0 or d % b != 0 or d % c != 0 :
+    d += 1
+print(d)
+---
+import math
+a, b, c = map(int, input().split())
+d = math.lcm(a, b, c) # 최소 공배수
+print(d)
+---
+import math   
+math.gcd(A, B)  # 최대 공약수
 ```
 ```python
-# 92번 - 
+# 92번 - 이상한 출석 번호 부르기1
+# 무작위(랜덤)
+n = int(input())         # 10
+a = input().split()      # 1 3 2 2 5 6 7 4 5 9
+
+for i in range(n) :      # 0 ~ 9
+  a[i] = int(a[i])       # [a]
+
+d = []
+for i in range(24) :     # 0~23
+  d.append(0)            # [0, 0, ... , 0, 0, 0] 24개
+
+for i in range(n) :      # 0~9
+  d[a[i]] += 1           #번호를 부를 때마다, 그 번호에 대한 카운트 1씩 증가
+
+for i in range(1, 24) :  #카운트한 값을 공백을 두고 출력
+  print(d[i], end=' ')
 ```
 ```python
-# 93번 - 
+# 93번 - 이상한 출석 번호 부르기2
+num = int(input())
+numlist = input().split()
+
+numlist.reverse()
+
+for i in range(0,num):
+    print(numlist[i], end=' ')
 ```
 ```python
-# 94번 - 
-```
-```python
-# 95번 - 
+# 94번 - 이상한 출석 번호 부르기3
+n = int(input())
+k = map(int,input().split())
+
+a = min(k)
+print(a)
 ```
 ```python
 # 96번 - 
