@@ -785,7 +785,7 @@ while n != 0:
         print(n)
 ```
 ```python
-# 72번 - 정수 1개 입력받아 카운트다운 출력
+# 72번 - 정수 1개 입력받아 카운트다운 출력1
 n = int(input())
 
 while n!=0:   # n가 0이 아니라면
@@ -793,7 +793,7 @@ while n!=0:   # n가 0이 아니라면
     n = n - 1 # n가 1씩 감소 - 결과적으로 0이 되면 출력하지 않음
 ```
 ```python
-# 73번 - 정수 1개 입력받아 카운트다운 출력
+# 73번 - 정수 1개 입력받아 카운트다운 출력2
 n = int(input())
     
 while n != 0:
@@ -1071,19 +1071,122 @@ a = min(k)
 print(a)
 ```
 ```python
-# 96번 - 
+# 95번 - 바둑판에 흰 돌 놓기
+# 바둑판(19 * 19)
+# n개의 흰 돌이 놓인 위치를 출력하는 프로그램을 작성
+# 바둑판에 올려 놓을 흰 돌의 개수(n)가 첫 줄에 입력
+# 둘째 줄 부터 n+1 번째 줄까지 힌 돌을 놓을 좌표(x, y)가 n줄 입력
+# x, y 좌표는 1 ~ 19
+# 흰 돌이 올려진 바둑판의 상황을 출력
+# 흰 돌이 있는 위치는 1, 없는 곳은 0으로 출력
+m = []
+
+for i in range(20):
+    m.append([])         # 리스트 안에 다른 리스트 추가해 넣기
+    for j in range(20):
+        m[i].append(0)   # 리스트 안에 들어있는 리스트 안에 0 추가해 넣기
+    
+n = int(input())         # 5
+
+for i in range(n):      
+    x, y = map(int, input().split()) # 좌표
+    m[x][y] = 1 # 좌표가 있는 곳은 리스트에서 1로 표시
+
+for i in range(1, 20):
+    for j in range(1, 20):
+        print(m[i][j], end = ' ')
+    print()             # 줄 바꿈
+```
+
+```python
+# 96번 - 바둑알 십자 뒤집기
+# 길이가 다른 몇 개의 막대를 바둑판과 같은 격자판
+# 막대에 있는 설탕과자 이름 아래에 있는 번호를 뽑으면 설탕과자를 가져가는 게임
+# 격자판의 세로(h), 가로(w), 막대의 개수(n), 각 막대의 길이(l),  
+# 막대를 놓는 방향(d:가로는 0, 세로는 1)과  
+# 막대를 놓는 막대의 가장 왼쪽 또는 위쪽의 위치(x, y)가 주어질 때,  
+# 격자판을 채운 막대의 모양을 출력하는 프로그램을 만들어보자
+location = []
+
+for i in range(19):
+    location.append([])
+
+    for j in range(19):
+        location[i].append(0)
+
+for i in range(19):
+    location[i] = list(map(int, input().split()))
+
+n = int(input())
+
+for i in range(n):
+    x, y = map(int, input().split())
+
+    for j in range(19):
+        if location[x-1][j] == 0:
+            location[x-1][j] = 1
+        else:
+            location[x-1][j] = 0
+        if location[j][y-1] == 0:
+            location[j][y-1] = 1
+        else:
+            location[j][y-1] = 0
+
+for i in range(19):
+    for j in range(19):
+        print(location[i][j], end=" ")
+        
+    print()
 ```
 ```python
-# 97번 - 
+# 97번 - 설탕과자 뽑기
+h, w = map(int, input().split())
+n = int(input())
+
+zeros = [[0] * w for _ in range(h)]
+
+for i in range(n):
+    l, d, x, y = map(int, input().split())
+
+    for j in range(l):
+        if d == 0:
+            zeros[x-1][y-1+j] = 1
+        else:
+            zeros[x-1+j][y-1] = 1
+
+for i in range(h):
+    for j in range(w):
+        print(zeros[i][j], end=' ')
+    print()
 ```
 ```python
-# 98번 - 
-```
-```python
-# 99번 - 
-```
-```python
-# 100번 - 
+# 98번 - 성실한 개미
+array = []
+
+for i in range(10):
+    array.append(list(map(int, input().split())))
+
+x, y = 1, 1
+
+while True:
+    if (array[x][y] == 0):
+        array[x][y] = 9
+    elif (array[x][y] == 2):
+        array[x][y] = 9
+        break
+
+    if ((array[x][y+1] == 1 and array[x+1][y] == 1)):
+        break
+
+    if (array[x][y+1] != 1):
+        y = y + 1
+    elif (array[x+1][y] != 1):
+        x = x + 1
+
+for i in range(10):
+    for j in range(10):
+        print(array[i][j], end=' ')
+    print()
 ```
 
 ## Review
