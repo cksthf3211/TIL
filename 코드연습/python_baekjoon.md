@@ -1232,16 +1232,47 @@ for i in range(t):
         print(f'{a} & {b} are NOT anagrams.')
 ```
 ```python
-
+# 10869번 - 사칙연산
+# 두 자연수 A와 B가 주어진다. 이때, A+B, A-B, A*B, A/B(몫), A%B(나머지)를 출력
+# 첫째 줄에 A+B, 둘째 줄에 A-B, 셋째 줄에 A*B, 넷째 줄에 A/B, 다섯째 줄에 A%B를 출력
+a, b = map(int, input().split())
+print(a + b) # 10
+print(a - b) # 4 
+print(a * b) # 21
+print(a / b) # 2.3333333333333335
+print(a % b) # 1
+---
+a, b = map(int, input().split())
+print(a + b) # 10
+print(a - b) # 4 
+print(a * b) # 21
+print(round(a / b)) # 2
+print(a % b) # 1
+# round(반올림), ceil(올림), floor(내림)
 ```
 ```python
-
+# 10926번 - ??!
+# joonas라는 아이디가 이미 존재하는 것을 보고 놀랐다. 준하는 놀람을 ??!로 표현
+# 이미 존재하는 아이디가 주어졌을 때, 놀람을 표현하는 프로그램을 작성
+id = input()
+c = id + '??!'
+print( c )
 ```
 ```python
-
+# 18108번 - 1998년생인 내가 태국에서는 2541년생?!
+y = int(input())
+k = y - 543
+print(k)
 ```
 ```python
-
+# 3003번 - 킹, 퀸, 룩, 비숍, 나이트, 폰
+# black_chess = (k + q + l + b + n + p) == 16
+# white_chess = (k + q + l + b + n + p) != 16
+# 동혁이가 발견한 흰색 피스의 개수가 주어졌을 때, 몇 개를 더하거나 빼야 올바른 세트가 되는지 구하는 프로그램을 작성
+index = [1, 1, 2, 2, 2, 8]
+chess = list(map(int, input().split()))
+for i in range(6):
+    print(index[i]-chess[i], end=' ')
 ```
 ```python
 
