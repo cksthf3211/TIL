@@ -5,6 +5,7 @@
 ```bash
 $ sqlite3 healthcare.sqlite3 
 ```
+sqlite3 users.sqlite3
 
 ## Column 출력 설정
 
