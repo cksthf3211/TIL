@@ -1275,5 +1275,55 @@ for i in range(6):
     print(index[i]-chess[i], end=' ')
 ```
 ```python
+# 10430번 - 나머지
+
+# (A+B)%C는 ((A%C) + (B%C))%C 와 같을까?
+# (A×B)%C는 ((A%C) × (B%C))%C 와 같을까?
+
+# 첫째 줄에 (A+B)%C
+# 둘째 줄에 ((A%C) + (B%C))%C
+# 셋째 줄에 (A×B)%C
+# 넷째 줄에 ((A%C) × (B%C))%C를 출력
+
+a, b, c = map(int, input().split()) # 5 8 4
+
+if ( a + b ) % c == (( a % c ) + ( b % c )) % c:
+    if ( a * b ) % c == (( a % c ) * ( b % c )) % c:
+
+        print(( a + b ) % c )
+
+        print((( a % c ) + ( b % c )) % c)
+
+        print((a * b ) % c )
+
+        print(((a % c ) * (b % c  )) % c )
+```
+```python
+# 2588번 - 곱셈
+# (세 자리 수) × (세 자리 수)는 다음과 같은 과정 ( 그림 )
+# (1)과 (2)위치에 들어갈 세 자리 자연수가 주어질 때 (3), (4), (5), (6)위치에 들어갈 값을 구하는 프로그램을 작성
+# 첫째 줄에 (1)의 위치에 들어갈 세 자리 자연수가, 둘째 줄에 (2)의 위치에 들어갈 세자리 자연수
+# 첫째 줄부터 넷째 줄까지 차례대로 (3), (4), (5), (6)에 들어갈 값을 출력
+a = int(input()) # 472 정수
+b = input()      # 385 문자열
+
+print(a*int(b[2]))
+print(a*int(b[1]))
+print(a*int(b[0]))
+print(a*int(b))
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
 
 ```

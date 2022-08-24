@@ -1,4 +1,7 @@
-index = [1, 1, 2, 2, 2, 8]
-chess = list(map(int, input().split()))
-for i in range(6):
-    print(index[i]-chess[i], end=' ')
+a = int(input()) # 472 정수
+b = input()      # 385 문자열
+
+print(a*int(b[2]))
+print(a*int(b[1]))
+print(a*int(b[0]))
+print(a*int(b))
