@@ -1,4 +1,3 @@
-import sys
 from django.db import models
 
 class Director(models.Model):
@@ -9,12 +8,10 @@ class Director(models.Model):
 class Genre(models.Model):
     title = models.TextField()
 
-    # create 메서드 활용
-    # Genre.objects.create(name = '발라드')
-
-    # 인스턴스 조작
-    # genre = genre()
-    # genre.name = '인디밴드'
-    # genre.save()
-
-# 
+class Movie(models.Model):
+    director = models.ForeignKey(Director,on_delete=models.CASCADE)
+    genre = models.ForeignKey(Genre,on_delete=models.CASCADE)
+    title = models.TextField()
+    opening_date = models.DateField()
+    running_time = models.IntegerField()
+    screening = models.BooleanField()
