@@ -803,9 +803,6 @@ for i in range(8):
             if chess[i][j] == 'F': #F있을 경우
                 answer += 1
 print(answer)
----
-import sys
-input = sys.stdin.readline
 ```
 ```python
 # 5와 6의 차이
@@ -1311,6 +1308,154 @@ print(a*int(b[2]))
 print(a*int(b[1]))
 print(a*int(b[0]))
 print(a*int(b))
+```
+```python
+# 10171번 - 고양이
+print('\\    /\\')
+print(" )  ( ')")
+print("(  /  )")
+print(" \(__)|")
+```
+```python
+# 10172번 - 개
+print("|\_/|")
+print("|q p|   /}")
+print('( 0 )"""\\')
+print('|"^"`    |')
+print("||_/=\\\__|")
+
+# 출력
+# |\_/|
+# |q p|   /}
+# ( 0 )"""\
+# |"^"`    |
+# ||_/=\\__|
+```
+```python
+# 25083번 - 새싹
+print("         ,r'\"7")
+print("r`-_   ,'  ,/")
+print(" \\. \". L_r' ")
+print("   `~\\/ ")
+print("      | ")
+print("      | ")
+```
+```python
+# 1330번 - 두 수 비교하기
+a, b = map(int, input().split())
+if a > b:
+    print('>')
+elif a < b:
+    print('<')
+else:
+    print('==')
+```
+```python
+# 9498번 - 시험 성적
+a = int(input())
+if a >= 90:
+    print('A')
+elif a >= 80:
+    print('B')
+elif a >= 70:
+    print('C')
+elif a >= 60:
+    print('D')
+else:
+    print('F')
+```
+```python
+# 1051번 - 숫자 정사각형
+# N×M크기의 직사각형
+# 각 칸에는 한 자리 숫자
+# 꼭짓점에 쓰여 있는 수가 모두 같은 가장 큰 정사각형을 찾는 프로그램을 작성
+# 정사각형은 행 또는 열에 평행
+# 첫째 줄에 정답 정사각형의 크기를 출력
+
+n, m = map(int, input().split())
+maps = []
+for i in range(n):
+    num = str(input())
+    line = list(map(int, num))
+    maps.append(line)
+
+length = min(n, m)
+a = 0
+while a == 0 and length>1:
+    for i in range(n - length + 1):
+        for j in range(m - length + 1):
+            check = [maps[i][j], maps[i][j + length - 1], maps[i + length - 1][j], maps[i + length - 1][j + length - 1]]
+            if len(set(check)) == 1:
+                a = 1
+                break
+    if a == 0:
+        length -= 1
+
+print(length**2)
+--
+n, m = map(int, input().split())
+matrix = [list(input()) for _ in range(n)]
+
+size = 1
+for i in range(1, n):
+    for a in range(n):
+        for b in range(m):
+            if a + i < n and b + i < m:
+                if matrix[a][b] == matrix[a + i][b] == matrix[a][b + i] == matrix[a + i][b + i]:
+                    size = (i + 1) ** 2
+                    
+print(size)
+```
+```python
+https://www.acmicpc.net/problem/2578
+# 2578번 - 빙고
+
+```
+```python
+# 1100번 - 하얀 칸
+# 체스판은 8×8
+# 검정 칸과 하얀 칸이 번갈아가면서 색칠
+# 가장 왼쪽 위칸 (0,0)은 하얀색
+# 하얀 칸 위에 말이 몇 개 있는지 출력
+# ‘.’은 빈 칸이고, ‘F’는 위에 말이 있는 칸
+chess = []
+cnt = 0
+
+for i in range(8): # 0~7
+    chess.append(list(str(input())))
+
+for j in range(8):
+    for k in range(8):
+        if (j+k) % 2 == 0:
+       # if "." == 0:
+            if chess [j][k] == "F":
+           # if "F" == 1:    #
+                cnt += 1    #
+print(cnt)
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
 ```
 ```python
 

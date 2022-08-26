@@ -1,7 +1,11 @@
-a = int(input()) # 472 정수
-b = input()      # 385 문자열
+chess = []
+cnt = 0
 
-print(a*int(b[2]))
-print(a*int(b[1]))
-print(a*int(b[0]))
-print(a*int(b))
+for i in range(8):
+    chess.append(list(str(input())))
+
+for j in range(8):
+    for k in range(8):
+        if (j+k) % 2 == 0 and  chess[j][k] == "F":
+            cnt += 1
+print(cnt)
