@@ -1,11 +1,5 @@
-chess = []
-cnt = 0
-
-for i in range(8):
-    chess.append(list(str(input())))
-
-for j in range(8):
-    for k in range(8):
-        if (j+k) % 2 == 0 and  chess[j][k] == "F":
-            cnt += 1
-print(cnt)
+year = int(input())
+if ((year % 4 == 0) and (year % 100 != 0)) or year % 400 == 0:
+    print('1')
+else:
+    print('0')
