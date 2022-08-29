@@ -1441,10 +1441,11 @@ print(cnt)
 # 1900년은 100의 배수이고 400의 배수는 아니기 때문에 윤년이 아니다. 하지만, 2000년은 400의 배수이기 때문에 윤년
 
 year = int(input())
-if year % 4 == 0 or year % 100 != 0 or year % 400 == 0:
-    print(1)
+
+if ((year % 4 == 0) and (year % 100 != 0)) or   year % 400 == 0:
+    print('1')
 else:
-    print(0)
+    rint('0')
 ```
 ```python
 
