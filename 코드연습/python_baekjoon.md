@@ -1448,10 +1448,39 @@ else:
     rint('0')
 ```
 ```python
+# 14681번 - 사분면 고르기
+x = int(input())
+y = int(input())
 
+if (x > 0 and y > 0):
+    print(1)
+if (x < 0 and y > 0):
+    print(2)
+if (x < 0 and y < 0):
+    print(3)
+if (x > 0 and y < 0):
+    print(4)
 ```
 ```python
-
+# 2884번 - 알람 시계
+# 45분 일찍 알람 설정
+h, m = map(int, input().split())
+if m > 44:
+    print(h, (m-45))
+elif m < 45 and h > 0:
+    print(h-1, m+15)
+else:
+    print(23, m+15)
+--
+print("원래 일어나는 시간을 입력하세요. 시간, 분")
+h, m = map(int, input().split())
+print('친구가 일어날 시간은')
+if m > 44:
+    print(f"{h}시 {(m-45)}분")
+elif m < 45 and h > 0:
+    print(f"{h-1}시 {m+15}분")
+else:
+    print(f"{23}시 {m+15}분")
 ```
 ```python
 
