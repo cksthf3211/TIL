@@ -1,15 +1,20 @@
 /* 아래에 CSS를 작성해주세요. */
-position{
+.position{
     text-align: center;
 }
-card{
+.card{
     margin: 10px;
 }
-img{
+.img{
     width: 300px;
     height: 300px;
     margin: 10px;
+    text-align: center;
 }
-view{
+.view{
 
+}
+.subtitle{
+    display: block;
+    font-size: 12px;
 }
