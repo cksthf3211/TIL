@@ -2,19 +2,18 @@
 .position{
     text-align: center;
 }
-.card{
-    margin: 10px;
-}
-.img{
-    width: 300px;
-    height: 300px;
-    margin: 10px;
-    text-align: center;
-}
-.view{
 
-}
 .subtitle{
     display: block;
     font-size: 12px;
+}
+.img-list {
+    width: 300px;
+}
+.img{
+    width: 300px;
+    display: inline-block;
+}
+.item-img {
+    width: 100%;
 }
