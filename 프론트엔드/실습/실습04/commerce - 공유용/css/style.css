@@ -1,42 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+/* 기본 글꼴 설정 */
+.body {
+font-family: 'Noto Sans KR', sans-serif;
+min-width: 1280px;
+color: #333333;
+position: relative;
+}
 
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  min-width: 1280px;
-  color: #333333;
-}
-.nav-list {
-  display: flex;
-  list-style:none;
-  margin: 0;
-  padding: 0;
-}
-.nav-link {
-  text-decoration: none;
-}
-.nav {
+.Navigation {
   top: 0;
+  margin: 1rem;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
   position: sticky;
   background-color: white;
 }
-.nav-item{
-  margin:0 10px;
-}
-.nav-link:visited {
-  color:black;
-}
-.nav-link:hover{
-  color: white;
+
+.list-item:hover {
   background-color: black;
   border-radius: 3px;
   padding: 2px;
+  color: white;
 }
-.body {
-  font-family: 'Noto Serif KR', serif;
-  height: 10000px;
-  background-color: aqua;
+
+.Navigation:visited {
+  color: brown;
+}
+.list-item {
+  margin: 0 10px;
+}
+.list_link{
+  text-decoration: none;
+  color: black;
+}
+.list_link:hover{
+  color: white;
+}
+
+.ul{
+  display: flex;
+}
+
+.banner_image{
+  height: 700px;
+  min-width: 1280px;
+  background-image: url("../assets/apparel.jpeg");
+  background-size: contain;
+  background-repeat: round;
+}
+
+.se{
+  width: 1280px;
+  display: flex;
+  flex-direction: column;
+}
+.content_2{
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+}
+.content_3{
+  display: flex;
+  align-items: center;
+  margin: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+.image {
+  width: 500px;
+  border-radius: 2rem;
+  margin: 2rem;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+.p{
+  line-height: 2;
+}
+.about {
+  font-size: 2rem;
+  margin: 1rem;
+}
+.about_2 {
+  font-size: 2rem;
+  margin: 2rem;
+  text-align: center;
+}
+.location{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.icon {
+  height: 64px;
+}
+.button{
+  height: 2rem;
+  margin: 2rem;
+}
+.bp{
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
+}
+
+.locate{
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.di{
+  display: flex;
+}
+
+.card-img{
+  width: 220px;
+  height: 150px;
+  text-align: center;
+}
+.ㅠㅠ{
+  width: 1280px;
 }
