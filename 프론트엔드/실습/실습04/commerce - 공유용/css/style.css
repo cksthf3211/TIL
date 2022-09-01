@@ -114,10 +114,9 @@ position: relative;
   display: flex;
   justify-content: center;
   margin: 2rem;
-}
-
-.di{
-  display: flex;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .card-img{
@@ -125,6 +124,22 @@ position: relative;
   height: 150px;
   text-align: center;
 }
-.ㅠㅠ{
+.ww{
   width: 1280px;
+}
+.qqq{
+  display: flex;
+  justify-content: center;
+}
+
+.aaa{
+  font-size: 3;
+  margin: 1rem;
+  text-align: center;
+}
+
+.ddd{
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
