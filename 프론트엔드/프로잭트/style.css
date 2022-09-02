@@ -1,0 +1,40 @@
+.nav img{
+    height:60px;
+}
+
+.nav-title{
+    display:flex;
+    justify-content: flex-end; 
+  }
+
+.nav-main {
+    list-style-type : none;
+}
+
+.nav-text {
+    color:black;
+    margin:10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    position: sticky;
+    padding:10px;
+}
+
+.banner{
+    height: 320px;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(./images/images/background.jpg);
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cate{
+    list-style-type: none;
+}
