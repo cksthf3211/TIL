@@ -1483,7 +1483,40 @@ else:
     print(f"{23}시 {m+15}분")
 ```
 ```python
+# 2525번 - 오븐시계
+# 끝나는 시간을 분 단위로 자동적으로 계산
+# 시작하는 시각과 오븐구이를 하는 데 필요한 시간이 분단위로 주어졌을 때, 오븐구이가 끝나는 시각을 계산하는 프로그램을 작성
+#    17 40
+#    80
+#    19 0
+a, b = map(int, input().split())
+c = int(input())
 
+a += c //60
+b += c % 60
+
+if a >= 60:
+    a += 1
+    b -= 60
+
+elif a >= 24:
+    a -= 24
+
+print(a, b)
+--
+H, M = map(int, input().split())
+timer = int(input()) 
+
+H += timer // 60
+M += timer % 60
+
+if M >= 60:
+    H += 1
+    M -= 60
+if H >= 24:
+    H -= 24
+
+print(H,M)
 ```
 ```python
 
