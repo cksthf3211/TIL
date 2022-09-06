@@ -1,14 +1,8 @@
-a, b = map(int, input().split())
-c = int(input())
+print("숫자 한개 (´ཀ`)a")
 
-a += c //60
-b += c % 60
+n = int(input())
 
-if a >= 60:
-    a += 1
-    b -= 60
+for i in range(1,10):
+    num = n * i
 
-if a >= 23:
-    a -= 24
-
-print(a, b)
+    print(f"{n} * {i} = {num}")

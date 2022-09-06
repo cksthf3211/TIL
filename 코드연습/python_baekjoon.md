@@ -1519,10 +1519,44 @@ if H >= 24:
 print(H,M)
 ```
 ```python
+# 2480번 - 주사위 세개
+# 1에서부터 6까지의 눈을 가진 3개의 주사위를 던져서 다음과 같은 규칙에 따라 상금을 받는 게임
+# 같은 눈이 3개가 나오면 10,000원+(같은 눈)×1,000원의 상금
+# 같은 눈이 2개만 나오는 경우에는 1,000원+(같은 눈)×100원의 상금
+# 모두 다른 눈이 나오는 경우에는 (그 중 가장 큰 눈)×100원의 상금
+a, b, c = map(int, input().split())
 
+if a == b == c:
+    print(10000 + (a * 1000))
+
+elif a == b and a != c:
+    print(1000 + (a * 100))
+
+elif a == c and a != b:
+    print(1000 + (a * 100))
+
+elif c == b and a != c:
+    print(1000 + (c * 100))
+
+elif (a != b != c):
+    print((max(a, b, c)) * 100)
 ```
 ```python
+# 2739번 - 구구단
+# N을 입력받은 뒤, 구구단 N단을 출력하는 프로그램을 작성
+n = int(input())
 
+for i in range(1,10):
+    num = n * i
+
+print(f"{n} * {i} = {num}")  # 틀림. 왜냐??
+--
+n = int(input())
+
+for i in range(1,10):
+    num = n * i
+
+    print(f"{n} * {i} = {num}")  # 들여쓰기
 ```
 ```python
 
