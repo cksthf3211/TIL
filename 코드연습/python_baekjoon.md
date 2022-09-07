@@ -1580,10 +1580,17 @@ for i in range(t):
     print(a + b)
 ```
 ```python
-
+# 2438번 - 별 찍기-1
+n = int(input())
+for i in range(1, n+1):
+    print("*" * i)
 ```
 ```python
-
+# 2439번 - 별 찍기-2
+n = int(input())
+for i in range(1, n+1):
+    # print(("*" * i)[::-1])
+    print(" "*(n - i) + "*" * i )
 ```
 ```python
 

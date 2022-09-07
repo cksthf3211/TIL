@@ -1,13 +1,12 @@
 import sys
 
-print("⎝༼¸◕ˇ‸ˇ◕˛ ༽⎠")
+print("--⎝-༼¸◕ˇ‸ˇ◕˛ ༽-⎠--")
 print("input을 입력하시오. (´ཀ`)a")
 
-t = int(input())
+n = int(input())
+for i in range(1, n+1):
+    # print(("*" * i)[::-1])
+    print(" "*(n - i) + "*" * i )
 
-for i in range(1, t+1):
-    a, b = map(int, sys.stdin.readline().split())
-    print(f"Case #{i}: {a} + {b} = {a+b}")
 
-
-print("⎛⎝(•‿•)⎠⎞  ⎛⎝(•‿•)⎠⎞  ⎛⎝(•‿•)⎠⎞  ⎛⎝(•‿•)⎠⎞")
+print("⎛⎝(•‿•)⎠⎞")
