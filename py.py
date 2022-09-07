@@ -1,8 +1,13 @@
-print("숫자 한개 (´ཀ`)a")
+import sys
 
-n = int(input())
+print("⎝༼¸◕ˇ‸ˇ◕˛ ༽⎠")
+print("input을 입력하시오. (´ཀ`)a")
 
-for i in range(1,10):
-    num = n * i
+t = int(input())
 
-    print(f"{n} * {i} = {num}")
+for i in range(1, t+1):
+    a, b = map(int, sys.stdin.readline().split())
+    print(f"Case #{i}: {a} + {b} = {a+b}")
+
+
+print("⎛⎝(•‿•)⎠⎞  ⎛⎝(•‿•)⎠⎞  ⎛⎝(•‿•)⎠⎞  ⎛⎝(•‿•)⎠⎞")
