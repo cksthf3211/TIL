@@ -1602,7 +1602,18 @@ for i in A:
     print(i, end=" ")
 ```
 ```python
-
+# 10952번 - A + B
+import sys
+for i in range(5):
+    a, b = map(int, input().split())
+    if a > 0 and b > 0:
+        print(a + b)
+---
+while True:
+    a, b = map(int, input().split())
+    if a == 0 and b == 0:
+        break
+    print(a+b)
 ```
 ```python
 
