@@ -1602,7 +1602,7 @@ for i in A:
     print(i, end=" ")
 ```
 ```python
-# 10952번 - A + B
+# 10952번 - A + B - 5
 import sys
 for i in range(5):
     a, b = map(int, input().split())
@@ -1616,7 +1616,17 @@ while True:
     print(a+b)
 ```
 ```python
-
+# 10951번 - A + B - 4
+while True:
+    try:
+        A, B = map(int, input().split())
+        print(A+B)
+    except:
+        break
+# 테스트 케이스의 개수가 정해지지 않았기 때문에
+# try: 변수 A,B에 int형이 들어간다면, A+B의 값을 출력
+# except: try에 대한 에러가 발생한 경우(ex. a 1, 3, 2 ㄱ 입력)
+# break: while문을 멈춘다.
 ```
 ```python
 
