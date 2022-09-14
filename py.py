@@ -1,25 +1,27 @@
 import sys
+input = sys.stdin.readline
 
-print("--⎝-༼¸◕ˇ‸ˇ◕˛ ༽-⎠--")
-print("input을 입력하시오. (´ཀ`)a")
+print("input을 입력하시오.⎝-༼¸◕ˇ‸ˇ◕˛ ༽-⎠")
 
-n = int(input())          # 68
-num = n
-cnt = 0                   # 사이클 수
 
-while True:               # while == 1
-    a = num // 10         # 6
-    b = num % 10          # 8
-    c = (a + b) % 10      # 
-    num = (b * 10) + c
+n = int(input())
+a = list(map(int, input().split()))
+b, c = map(int, input().split())
 
-    cnt += 1
+cnt = 0
+for i in range(n):
+    if a[i] > b:
+        a[i] -= b
+        cnt += 1
 
-    if (num == n):
-        break
+        if a[i] % c == 0:
+            cnt += a[i] // c
+        else:
+            cnt += a[i] // c + 1
+    else:
+        cnt += 1
 
 print(cnt)
-    
 
 
 print("⎛⎝(•‿•)⎠⎞")

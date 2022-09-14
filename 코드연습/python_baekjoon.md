@@ -1650,3 +1650,91 @@ print(cnt)
 
 # (/ 나누기) (// 몫) (% 나머지)
 ```
+```python
+# 8393번 - 합
+n = int(input())
+love = []
+
+for i in range(1,n+1):
+    love.append(i)
+
+print(sum(love))
+```
+```python
+# 13458번 - 시험 감독
+# 총 N개의 시험장
+# i번 시험장에 있는 응시자의 수는 Ai명
+# 총감독관과 부감독관으로 두 종류
+# 총감독관은 한 시험장에서 감시할 수 있는 응시자의 수가 B명이고
+# 부감독관은 한 시험장에서 감시할 수 있는 응시자의 수가 C명
+# 총감독관은 오직 1명만 있어야 하고, 부감독관은 여러 명
+# 응시생들을 모두 감시해야 한다. 이때, 필요한 감독관 수의 최솟값을 구하는 프로그램을 작성
+
+# 첫째 줄에 시험장의 개수
+# 둘째 줄에는 각 시험장에 있는 응시자의 수
+# 셋째 줄에는 B와 C
+
+# 감독관의 최소 수를 출력
+import sys
+input = sys.stdin.readline
+
+
+n = int(input())
+a = list(map(int, input().split()))
+b, c = map(int, input().split())
+
+cnt = 0
+for i in range(n):
+    if a[i] > b:
+        a[i] -= b
+        cnt += 1
+
+        if a[i] % c == 0:
+            cnt += a[i] // c
+        else:
+            cnt += a[i] // c + 1
+    else:
+        cnt += 1
+
+print(cnt)
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+
