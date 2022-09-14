@@ -1,0 +1,67 @@
+/* .banner_image{
+    height: 700px;
+    min-width: 100%;
+    background-image: url("images/쇼생크탈출.jpg");
+    background-size: cover;
+    filter: blur(100%) grayscale(100%)
+  } */
+/* .banner_image {
+    width: 100%;
+    height: 100vh;
+    background:url("images/쇼생크탈출.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+.banner_image::before{
+    background-color: rgba(0,0,0,0.85);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: ' ';
+  } */
+  /* 위조 요소: before를 통해 전송된 검은색을 위에서 중첩 */
+.banner_image_TheShawshankRedemption{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)),url("images/쇼생크탈출.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.banner_image_DeadPoetsSociety{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)),url("images/죽은시인의사회.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.card-movie {
+    position: relative;
+}
+.card-movie:hover {
+    transform: scale(1.05);
+  }
+  
+.card-movie:hover .card-img-top {
+    filter: brightness(0.9) blur(3px) grayscale(100%) ;
+}
+
+.watch {
+    position: absolute;
+    visibility: hidden;
+    color: white;
+    top: 30%;
+    left: 33%;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+.card-movie:hover .watch {
+    visibility: visible;
+    border: 2px solid white;
+  }
