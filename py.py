@@ -1,27 +1,22 @@
+from operator import index
 import sys
 input = sys.stdin.readline
 
-print("input을 입력하시오.⎝-༼¸◕ˇ‸ˇ◕˛ ༽-⎠")
-
-
-n = int(input())
-a = list(map(int, input().split()))
-b, c = map(int, input().split())
-
+n_list = []
 cnt = 0
-for i in range(n):
-    if a[i] > b:
-        a[i] -= b
-        cnt += 1
 
-        if a[i] % c == 0:
-            cnt += a[i] // c
-        else:
-            cnt += a[i] // c + 1
-    else:
-        cnt += 1
+for i in range(1, 10):
+    n = int(input())
+    n_list.append(n)
 
-print(cnt)
+
+print(max(n_list), n_list.index(max(n_list))+1 ,sep="\n")
+
+# for i in n:
+#     n_list.append(n)
+#     print(n_list)
+
+# print(max(a), end="")
 
 
 print("⎛⎝(•‿•)⎠⎞")

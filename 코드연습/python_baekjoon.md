@@ -1699,10 +1699,28 @@ for i in range(n):
 print(cnt)
 ```
 ```python
+# 10818번 - 최소, 최대
+n = int(input())
+a = list(map(int, input().split()))
 
+
+print(min(a), max(a), sep=" ")
 ```
 ```python
+# 2562번 - 최댓값
+from operator import index
+import sys
+input = sys.stdin.readline
 
+n_list = []
+cnt = 0
+
+for i in range(1, 10):
+    n = int(input())
+    n_list.append(n)
+
+
+print(max(n_list), n_list.index(max(n_list))+1 ,sep="\n")
 ```
 ```python
 
