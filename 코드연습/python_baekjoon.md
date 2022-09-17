@@ -1679,22 +1679,23 @@ import sys
 input = sys.stdin.readline
 
 
-n = int(input())
-a = list(map(int, input().split()))
-b, c = map(int, input().split())
+n = int(input())                      # 시험장
+a = list(map(int, input().split()))   # 시험장별 응시자 수
+b, c = map(int, input().split())      # 총감독관, 부감독관
 
-cnt = 0
-for i in range(n):
-    if a[i] > b:
-        a[i] -= b
-        cnt += 1
+cnt = 0                               # 감독관의 최소 수
+for i in range(n):                    # 시험장 수
+    if a[i] > b:                      # 리스트로 받아온 응시자 수가 총감독관 수보다 많다면
+        a[i] -= b                     # 응시자 수에서 총감독관이 관리 할 수 있는 인원을 빼고
+        cnt += 1                      # 감독관 최소 수 + 1
 
-        if a[i] % c == 0:
-            cnt += a[i] // c
-        else:
-            cnt += a[i] // c + 1
+        if a[i] % c == 0:             # 응시자에서 총감독관 뺀 수를 부감독관 수로 나눴을때 나머지가 0이라면
+            cnt += a[i] // c          # 응시자에서 부감독관 나눈 몫 만큼 카운트
+        else:                        
+            cnt += a[i] // c + 1      # 나머지가 0이 아니라면(1명도 감독을 해야하니깐) 카운트 + 1
+# 헤맷던 부분 ( 계속 틀린 정답이라 나옴)
     else:
-        cnt += 1
+        cnt += 1                      # 총감독관보다 응시 인원이 적을 수도 있으니 부감독관 없이 총감독관 1명만 필요
 
 print(cnt)
 ```
@@ -1723,10 +1724,27 @@ for i in range(1, 10):
 print(max(n_list), n_list.index(max(n_list))+1 ,sep="\n")
 ```
 ```python
+# 17413번 - 단어 뒤집기 2
+s =import   sys
+input = sys.stdin.readline
+  
+s = list(input().split())
 
+# s_list = []
+# s_list.append(s)    
+print(s.index)
+
+print("⎛⎝(•‿•)⎠⎞")
 ```
 ```python
+n = 0
+result = 0
+a = int(input())
 
+while n <= a:
+    n += 1
+    result += n
+print(result)
 ```
 ```python
 
