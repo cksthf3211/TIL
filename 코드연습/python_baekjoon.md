@@ -1727,14 +1727,38 @@ print(max(n_list), n_list.index(max(n_list))+1 ,sep="\n")
 # 17413번 - 단어 뒤집기 2
 s =import   sys
 input = sys.stdin.readline
-  
+
 s = list(input().split())
+answer = ''
+stack = ''
+flag = 0
 
-# s_list = []
-# s_list.append(s)    
-print(s.index)
+for i in s:
+    if flag == 0:
+        if i == '<':
+            flag = 1
+            answer += stack[::-1]
+            stack = ''
+            answer += i
+            continue
+            
+        elif 1== ' ':
+            answer == stacl[::-1]
+            answer += i
+            stack = ''
+            
+        else:
+            stack += i
+            
+        if flag == 1:
+            answer += i
+            if i == '>':
+                flag = 0
+                
+answer += stack[::-1]
+stack = ''
 
-print("⎛⎝(•‿•)⎠⎞")
+print(answer)
 ```
 ```python
 n = 0
@@ -1747,13 +1771,54 @@ while n <= a:
 print(result)
 ```
 ```python
+# 1244번 - 스위치 켜고 끄기
+n = int(input())
+button = [2] + list(map(int, input().split()))
 
+for _ in range(int(input())):
+    a, b = map(int, input().split())
+    if a % 2:
+        cnt = 1
+        while b * cnt <= n:
+            button[b * cnt] = int(not button[b * cnt])
+            cnt += 1
+    else:
+        button[b] = int(not button[b])
+        for i in range(n//2):
+            if 0 <= b + i <= n and 0 <= b - i <= n:
+                if button[b + i] == button[b - i]:
+                    button[b + i] = int(not button[b + i])
+                    button[b - i] = int(not button[b - i])
+                else:
+                    break
+for i in range(1, n + 1):
+    print(button[i], end=" ")
+    if not i % 20:
+        print()
 ```
 ```python
+# 11047번 - 동전 0
+# 동전은 N 종류
+# 가치의 합을 K
+# 필요한 동전 개수의 최솟값
+import sys
+input = sys.stdin.readline
 
+n, k = map(int, input().split()) 
+count = 0
+coin_lst = []
+
+for i in range(n):
+    coin_lst.append(int(input()))  # 동전의 가치를 리스트에 입력
+
+for i in reversed(range(n)):       # 오름차순이라 내림차순 (큰거부터)
+    count += k // coin_lst[i]      #카운트 값에 k를 동전으로 나눈 몫을 더해줌 1000 * 4 (4개 더하기)
+    k = k % coin_lst[i]            # k는 동전으로 나눈 나머지로 계속 반복     100 * 2  
+
+print(count)
 ```
 ```python
-
+#
 ```
 ```python
 
