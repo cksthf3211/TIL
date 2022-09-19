@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+    
+    <button type="button">버튼</button>
+    <script>
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', function (event) {
+            alert('버튼이 클릭되었습니다.')
+            console.log(event)
+        })
+    </script>
+
+
+    <button onclick="alertMessage()">나를 눌러봐!</button>
+    <script>
+        const alertMessage = function() {
+            alert('메롱!!!')
+        }
+    </script>
+
+
+    <button id="my-button">나를 눌러봐!!</button>
+    <script>
+        const myButton = document.querySelector('#my-button')
+        myButton.addEventListener('click', alertMessage)
+    </script>
+
+
+    <p id="my-paragraph"></p>
+
+    <form action="#">
+        <label for="my-text-input">내용을 입력하세요.</label>
+        <input id="my-text-input" type="text">
+    </form>
+
+    <script>
+        const myTextInput = document.querySelector('#my-text-input')
+        myTextInput.addEventListener('input', function (event) {
+
+            const myPtag = document.querySelector('#my-paragraph')
+            myPtag.innerText = event.target.value
+        })
+    </script>
+
+
+    <h2>Change My Color</h2>
+    <label for="change-color-input">원하는 색상을 영어로 입력하세요.</label>
+    <input id="change-color-input"></body>
+    <hr>
+
+    <script>
+        const colorInput = document.querySelector('#change-color-input')
+
+        const changeColor = function (event) {
+            const h2Tag = document.querySelector('h2')
+            h2Tag.style.color = event.target.value
+        }
+        colorInput.addEventListener('input', changeColor)
+    </script>
+
+
+    <input type="checkbox" id="my-checkbox">
+    <script>
+        const checkBox = document.querySelector('#my-checkbox')
+
+        checkBox.addEventListener('click', function (event) {
+            event.preventDefault()
+            console.log(event)
+        })
+    </script>
+
+    <form action="/articles/" id="my-form">
+        <input type="text">
+        <input type="submit" value="제출!">
+    </form>
+
+    <script>
+        const formTag = document.querySelector('#my-form')
+
+        formTag.addEventListener('submit', function (event) {
+            console.log(event)
+            event.preventDefault()
+            event.target.reset()
+        })
+    </script>
+
+    <a href="https://google.com/" target="_blank" id="my-link">GoToGoogle</a>
+
+    <script>
+        const aTag = document.querySelector('#my-link')
+
+        aTag.addEventListener('click', function (event) {
+        console.log(event)
+        event.preventDefault()
+        })
+    </script>
+
+    <script>
+        document.addEventListener('scroll', function (event){
+            console.log(event)
+            event.preventDefault()
+        })
+    </script>
+</body>
+
+</html>
