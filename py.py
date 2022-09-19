@@ -1,28 +1,21 @@
 import sys
 input = sys.stdin.readline
 
-# n, k = map(int, input().split())
+n = int(input())
+a = [0] * n
 
-# for i in n:
-#     if k > a
-#     a = map(int, input())
-
-#     print(a)
-
-n, k = map(int, input().split()) 
-count = 0
-coin_lst = []
 for i in range(n):
-    coin_lst.append(int(input()))  # 동전의 가치를 리스트에 입력
+    a[i] = int(input())
 
-for i in reversed(range(n)):
-    count += k // coin_lst[i]        # 카운트 값에 k를 동전으로 나눈 몫을 더해줌
-    k = k % coin_lst[i]              # k는 동전으로 나눈 나머지로 계속 반복
+for i in range(n - 1):
+    for j in range(n - 1 - i):
+        if a[j] > a[j + 1]:
+            temp = a[j]
+            a[j] = a[j+1]
+            a[j+1] = temp
 
-print(coin_lst)
-print(count)
-
-
+for i in range(n):
+    print(a[i])
 
 
 
