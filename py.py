@@ -1,22 +1,21 @@
 import sys
 input = sys.stdin.readline
 
+
 n = int(input())
-a = [0] * n
+score = list(map(int,input().split()))
 
-for i in range(n):
-    a[i] = int(input())
 
-for i in range(n - 1):
-    for j in range(n - 1 - i):
-        if a[j] > a[j + 1]:
-            temp = a[j]
-            a[j] = a[j+1]
-            a[j+1] = temp
+a = max(score)
+b = sum(score)
+c = b / n / a * 100
 
-for i in range(n):
-    print(a[i])
 
+
+print(c)
+
+
+# print(((180/3)/80)*100) # 40 80 60
 
 
 print("⎛⎝(•‿•)⎠⎞")

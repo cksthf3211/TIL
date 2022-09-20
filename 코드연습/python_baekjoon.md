@@ -1849,7 +1849,21 @@ while len(card) != 1:
 print(ans)
 ```
 ```python
+# 1546번 - 평균
+# 점수 조작을 위해 자기 점수 중 최댓값 m 을 고름
+# 모든 점수를 점수/m*100으로 고쳤다.
+# 새로 계산했을 때, 새로운 평균을 구하는 프로그램을 작성
+import sys
+input = sys.stdin.readline
 
+n = int(input())
+score = list(map(int,input().split()))
+
+a = max(score)
+b = sum(score)
+c = b / n / a * 100
+
+print(c)
 ```
 ```python
 
