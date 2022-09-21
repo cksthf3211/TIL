@@ -1866,7 +1866,31 @@ c = b / n / a * 100
 print(c)
 ```
 ```python
+# 4344번 - 평균은 넘겠지
+# 새내기들의 90%는 자신이 반에서 평균은 넘는다고 생각한다. 당신은 그들에게 슬픈 진실을 알려줘야 한다.
+# 첫째 줄에는 테스트 케이스의 개수 C
+# 둘째 줄부터 각 테스트 케이스마다 학생의 수 N ( 첫 수)
+# 이어서 N명의 점수
+# 평균을 넘는 학생들의 비율을 반올림하여 소수점 셋째 자리까지 출력
+# 소수점 셋째 자리까지 출력
+import sys
+input = sys.stdin.readline
 
+c = int(input())     # 테스트케이스 개수
+
+for i in range(c):
+    cnt = 0
+    n = list(map(int, input().split()))
+    avg = sum(n[1:]) / n[0]
+
+    for j in range(1, len(n)):
+        if n[j] > avg:
+            cnt += 1
+
+    result = cnt / n[0] * 100
+
+  # print(f'{round(result,3)}%')
+    print(f'{result:.3f}%')
 ```
 ```python
 
