@@ -1,24 +1,20 @@
 import sys
 input = sys.stdin.readline
 
+import sys
 
-c = int(input())     # 테스트케이스 개수
+N = int(input())
 
+check_list = [0] * 10001
 
-for i in range(c):
-    cnt = 0
-    n = list(map(int, input().split()))
-    avg = sum(n[1:]) / n[0]
-
-    for j in range(1, len(n)):
-        if n[j] > avg:
-            cnt += 1
-
-    result = cnt / n[0] * 100
-
-    # print(f'{round(result,3)}%')
-    print(f'{result:.3f}%')
-
-
+for i in range(N):
+    input_num = int(input())
+    
+    check_list[input_num] = check_list[input_num] + 1
+    
+for i in range(10001):
+    if check_list[i] != 0:
+        for j in range(check_list[i]):
+            print(i)
 
 print("⎛⎝(•‿•)⎠⎞")

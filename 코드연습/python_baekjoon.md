@@ -1893,10 +1893,52 @@ for i in range(c):
     print(f'{result:.3f}%')
 ```
 ```python
+# 구구단 2~9단
+print("구구단을 외자~ 구구단을 외자 ~ ༼ つ ◕_◕ ༽つ ~")
+for i in range(2, 10):
+    print(f"----{i}단을 외자----༼ つ ◕_◕ ༽つ 둠 칫")
+    for j in range(1, 10):
+        print(f"{i} x {j} = {i*j}")
+
+
+print("오예 ~~⎛⎝(•‿•)⎠⎞~~")
 
 ```
 ```python
+# 10989번 - 수 정렬하기 3
+# sort()는 리스트만을 위한 메소드이지만 sorted() 함수는 어떤 이터러블 객체도 받을 수 있다.
+import sys
+input = sys.stdin.readline
 
+n = int(input())
+n_list = []
+
+for i in range(n):
+    n_list.append(int(input()))
+    n_list.sort()
+---
+# print(*set(n_list), sep = "\n")  # 중복 없애기
+print(*n_list, sep = "\n")       # 둘 중 하나
+---
+for j in n_list:
+    print(j)
+
+--- 시간초과 ---
+# for문 속에서 append를 사용하게 되면 메모리 재할당이 이루어져서 메모리를 효율적으로 사용못함
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+check_list = [0] * 10001
+
+for i in range(N):
+    input_num = int(input()) 
+    check_list[input_num] = check_list[input_num] + 1
+    
+for i in range(10001):
+    if check_list[i] != 0:
+        for j in range(check_list[i]):
+            print(i)
 ```
 ```python
 
