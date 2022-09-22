@@ -18,7 +18,7 @@ pip list                         # package와 version을 확인
 
 python --version                 # python version 확인: Python 3.9.13
 
-Python -m venv [가상환경이름]    # 가상환경 생성
+Python -m venv [가상환경이름]-venv    # 가상환경 생성
 
 ls -a                            # 생성 확인
 
@@ -28,7 +28,7 @@ ls                               # 목록 확인
 
 cd ..                            # 한 칸 올라오기(이전 파일) 위치 주의 하기!!!
 
-source server-venv/Scripts/activate # 가상환경 작동 (server-venv) 텝 으로 입력
+source test-venv/Scripts/activate # 가상환경 작동 (server-venv) 텝 으로 입력
                                  # 가상환경 안에서는 바깥에 영향을 미치지 않음
 pip list                         # Django가 깔려있지 않은거 확인
 
@@ -58,3 +58,32 @@ localhost:8000                   # 인터넷 주소창에 입력하여 서버가
 
 ctrl + c                         # 서버 종료
 ```
+
+```bash
+source [가상환경이름]-venv/Scripts/activate    # 가상환경 작동 후
+
+python manage.py startapp [앱 이름]   # 앱 이름을 복수형으로 보자 (에러가 있음) articles
+source [가상환경이름]-venv/Scripts/activate    # 가상환경 작동 후
+pip list
+```
+- testpjt에 있는urls 파일 에 articles에 있는 views 파일 import
+- articles에 있는 views testpjt에 있는urls 파일 index 함수를 정의
+
+- articles 안에 templates 폴더를 만듬 ( 이름은 반드시 동일 )
+-  templates 안에 index.html 만들고 ! 텝 하여 기본 구성
+
+```bash
+python manage.py startapp articles
+python manage.py runserver  # 서버를 돌림
+localhost:8000              # 페이지를 찾을 수 없다
+localhost:8000/index/
+```
+
+1. 가상환경 생성 실행
+2. django LTS버전 설치
+3. django 프로젝트 생성
+4. 앱 생성
+    1. 주의할 점: 커맨드를 manage.py가 있는 경로에서 실행
+5. 앱 등록
+    1. INSTALLED_APPS 에 프로젝트 파일명 입력
+6. 서버 실행 테스트
