@@ -1907,6 +1907,7 @@ print("오예 ~~⎛⎝(•‿•)⎠⎞~~")
 ```python
 # 10989번 - 수 정렬하기 3
 # sort()는 리스트만을 위한 메소드이지만 sorted() 함수는 어떤 이터러블 객체도 받을 수 있다.
+# 계수 정렬
 import sys
 input = sys.stdin.readline
 
@@ -1932,7 +1933,7 @@ N = int(input())
 check_list = [0] * 10001
 
 for i in range(N):
-    input_num = int(input()) 
+    input_num = int(input())
     check_list[input_num] = check_list[input_num] + 1
     
 for i in range(10001):
@@ -1941,9 +1942,85 @@ for i in range(10001):
             print(i)
 ```
 ```python
+# 2751번 - 수 정렬하기 2
+# 메모리 제한: 256 MB, 시간 제한: 2초
+n = int(input())
+n_list = []
+
+for i in range(n):
+    n_list.append(int(input()))
+n_list.sort()
+
+for j in n_list:
+    print(j)
+```
+```python
+# 11650번 - 좌표 정렬하기
+# 2차원 평면 위의 점 N
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+n_list = []
+
+for i in range(n):
+    x, y = map(int, input().split())
+    n_list.append((x, y))
+# n_list.sort(key = lambda (x:[0], x[1])
+n_list.sort()
+
+for i in n_list:
+    print(*i)
+```
+```python
+# 11651번 - 좌표 정렬하기2
 
 ```
 ```python
 
 ```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+```python
+
+```
+
+
 

@@ -1,20 +1,15 @@
 import sys
 input = sys.stdin.readline
 
-import sys
+n = int(input())
+n_list = []
 
-N = int(input())
+for i in range(n):
+    x, y = map(int, input().split())
+    n_list.append((x, y))
 
-check_list = [0] * 10001
+n_list.sort(key = lambda x:(x[1], x[0]))
 
-for i in range(N):
-    input_num = int(input())
-    
-    check_list[input_num] = check_list[input_num] + 1
-    
-for i in range(10001):
-    if check_list[i] != 0:
-        for j in range(check_list[i]):
-            print(i)
+for j in n_list:
 
-print("⎛⎝(•‿•)⎠⎞")
+    print(*j)
