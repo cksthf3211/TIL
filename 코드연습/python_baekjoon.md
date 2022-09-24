@@ -1974,10 +1974,33 @@ for i in n_list:
 ```
 ```python
 # 11651번 - 좌표 정렬하기2
+import sys
+input = sys.stdin.readline
 
+n = int(input())
+n_list = []
+
+for i in range(n):
+    x, y = map(int, input().split())
+    n_list.append((x, y))
+
+n_list.sort(key = lambda x:(x[1], x[0]))
+
+for j in n_list:
+
+    print(*j)
 ```
 ```python
+# 25305번 - 커트라인
+import sys
+input = sys.stdin.readline
 
+n, k = map(int, input().split())
+score = list(map(int, input().split())) 
+
+score.sort(reverse = True)
+
+print(score[k-1]) 
 ```
 ```python
 
