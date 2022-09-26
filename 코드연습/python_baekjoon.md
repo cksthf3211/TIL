@@ -2059,7 +2059,7 @@ else:
 print(nums[-1] - nums[0])
 ```
 ```python
-
+# 
 ```
 ```python
 

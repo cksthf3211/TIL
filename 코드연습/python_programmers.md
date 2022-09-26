@@ -44,7 +44,30 @@ def solution(absolutes, signs):
     return sum(absolutes if sign else -absolutes for absolutes, sign in zip(absolutes, signs))
 ```
 ```python
+# 완주하지 못한 선수
+# 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주
+# 참여자의 이름이 담긴 배열 participant
+# 완주한 선수들의 이름이 담긴 배열 completion
+# 완주하지 못한 선수의 이름을 return 하도록 solution 함수
+# completion의 길이는 participant의 길이보다 1 작습니다.
+# 참가자 중에는 동명이인이 있을 수 있습니다.
+def solution(participant, completion):
+    
+    dic = {}
+    for i in participant:   # participant키를 순회
+        if i in dic.keys(): #key에 i가 있다면 +1 을 함
+            dic[i] += 1
+        else:               # 초면이다? 그럼 넌 1이야
+            dic[i] = 1
 
+    for i in completion:     # completion키를 돌아봐
+        if i in dic.keys():  # 키를 돌고나서 이름 또 있다? 그럼 - 해
+            dic[i] -= 1
+            
+    for key ,value in dic.items():  # 그러면 남은 녀석들? 완주를 못했구나
+        if value == 1:              # 그럼 너는 1이야
+
+            return key             # 범인 발견
 ```
 ```python
 
