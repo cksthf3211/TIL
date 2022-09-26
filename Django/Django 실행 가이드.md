@@ -73,7 +73,8 @@ pip list
 -  templates 안에 index.html 만들고 ! 텝 하여 기본 구성
 
 ```bash
-python manage.py startapp articles
+django-admin startproject [프로젝트이름] or django-admin startproject [프로젝트이름] . # 폴더 안 또는 현재 폴더에 프로젝트를 만듬
+python manage.py startapp articles 
 python manage.py runserver  # 서버를 돌림
 localhost:8000              # 페이지를 찾을 수 없다
 localhost:8000/index/
@@ -87,3 +88,8 @@ localhost:8000/index/
 5. 앱 등록
     1. INSTALLED_APPS 에 프로젝트 파일명 입력
 6. 서버 실행 테스트
+
+```bash
+bolck 설정
+pip install black # Django 설치랑 같이 하기
+```
