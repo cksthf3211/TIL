@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>로또 결과</h1>
+    <p>로또를 {{ num }}개 구매하셨습니다.</p>
+    <ul>
+        {% for Lotto in Lottos %}
+        <li>{{ Lotto }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

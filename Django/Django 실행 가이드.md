@@ -90,6 +90,6 @@ localhost:8000/index/
 6. 서버 실행 테스트
 
 ```bash
-bolck 설정
+black 설정
 pip install black # Django 설치랑 같이 하기
 ```

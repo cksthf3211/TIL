@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% comment %} form 태그를 활용하여 사용자에게 숫자 2개를 입력 {% endcomment %}
+<form action="/lipsum_2" method="GET">
+    <div class="m-3">
+      <label for="exampleInputEmail1" class="form-label">문단의 수</label>
+      <input name="wowo" type="text" class="form-control" id="exampleInputEmail1">
+    </div>
+    <div class="m-3">
+      <label for="exampleInputEmail1" class="form-label">문단별 단어의 수</label>
+      <input name="nono" type="text" class="form-control" id="exampleInputEmail1">
+    </div>
+    <button type="submit" class="btn btn-primary m-3">생성</button>
+</form>
+{% comment %} 생성 버튼을 누르면 랜덤 한글 텍스트를 생성하고 텍스트를 화면에 표시합니다. {% endcomment %}
+{% endblock %}
