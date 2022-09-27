@@ -265,15 +265,15 @@ for i in range(5):
 # 우승자의 번호 + 우승자의 점수
 print(score.index(max(score)) + 1, max(score))
 ```
-
-
+10809번 - 알파벳 찾기
 ```python
 # 1157번
-words = input().upper() unique_words = list(set(words))
-# 입력받은 문자열에서 중복값을 제거
-cnt_list = [ ]
-for x in unique_words:
-    cnt = words.count(x)
+words = input().upper()
+words_list = list(set(words))
+            # 입력받은 문자열에서 중복값을 제거
+cnt_list = []
+for i in words_list:
+    cnt = words.count(i)
     cnt_list.append(cnt)
 # count 숫자를 리스트에 append
 if cnt_list.count(max(cnt_list)) > 1 :
@@ -283,6 +283,24 @@ else :
     max_index = cnt_list.index(max(cnt_list))
 # count 숫자 최대값 인덱스(위치)
     print(unique_words[max_index])
+    
+--
+import sys
+input = sys.stdin.readline
+
+word = input().upper()
+word_list = list(set(word))
+cnt = []
+
+for i in word_list:
+  count = word.count
+  cnt.append(count(i))
+
+if cnt.count(max(cnt)) > 1:
+  print("?")
+
+else:
+  print(word_list[(cnt.index(max(cnt)))])
 ```
 ```python
 # 2941번
@@ -2059,7 +2077,18 @@ else:
 print(nums[-1] - nums[0])
 ```
 ```python
-# 
+# 10809번 - 알파벳 찾기
+import sys
+input = sys.stdin.readline
+
+word = input()
+s = 'abcdefghijklmnopqrstuvwxyz'
+
+for i in s:
+    if i in word:
+        print(word.index(i), end=' ')
+    else:
+        print(-1, end=' ')
 ```
 ```python
 
