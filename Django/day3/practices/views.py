@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from day3pjt.settings import BASE_DIR
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -16,4 +18,5 @@ def pong(request):
     context = { # 템플릿 안에서 뭐라고 칭할지
         'name' : name,
     }
+    print(BASE_DIR)
     return render(request, 'pong.html', context)

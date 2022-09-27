@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div>
+    <h1>방명록</h1>
+</div>
+<div>
+    <h1>글 목록</h1>
+    {% for content in questbook %}
+    <p>{{ content }}</p>
+    {% endfor %}
+</div>
+<div>
+    <h2>글 작성</h2>
+    <form> action="/"</form>
+</div>
+{% endblock %}
