@@ -12,7 +12,7 @@ def create(request):
     title = request.GET.get('title')
     content = request.GET.get('content')
     
-    Posts.objects.create(title=title, content=content)
+    Post.objects.create(title=title, content=content)
     
     context = {
         'title' : title,
