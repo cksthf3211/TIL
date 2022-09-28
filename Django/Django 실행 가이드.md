@@ -93,6 +93,9 @@ localhost:8000/index/
 black 설정
 pip install black # Django 설치랑 같이 하기
 ```
+python manage.py makemigrations
+
+
 - - python -m venv venv   (가상환경 생성)
 - . venv/scripts/activate  (가상환경 실행)
 - pip install -r requirements.txt (패키지 설치)

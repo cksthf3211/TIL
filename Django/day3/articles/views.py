@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from day3pjt.settings import BASE_DIR
-from .models.py import Article
+from . models.py import Article
 
 # Create your views here.
 def index(request):
