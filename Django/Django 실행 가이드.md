@@ -93,7 +93,12 @@ localhost:8000/index/
 black 설정
 pip install black # Django 설치랑 같이 하기
 ```
+
+- models에 추가 및 수정 시 적용
+```bash
 python manage.py makemigrations
+python manage.py migrate
+```
 
 
 - - python -m venv venv   (가상환경 생성)
