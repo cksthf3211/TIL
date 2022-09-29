@@ -79,6 +79,27 @@ def solution(participant, completion):
 # N마리 폰켓몬의 종류 번호가 담긴 배열 nums가 매개변수
 # N/2마리의 폰켓몬을 선택하는 방법 중, 가장 많은 종류의 폰켓몬을 선택하는 방법
 # 폰켓몬 종류 번호의 개수를 return 하도록 solution 함수를 완성
+def solution(nums):
+    answer = 0
+    lenth = round(len(nums)/2)
+    
+    monster = {}
+
+    for i in nums:                
+        if i not in monster:
+            monster[i] = 1 
+        else:
+            monster[i] += 1
+        
+    if len(monster) > lenth:
+        answer = lenth
+    else:    
+        answer = len(monster)
+    
+    return answer
+---
+def solution(nums):
+    return min(len(nums)/2, len(set(ls)))
 ```
 ```python
 
