@@ -112,3 +112,25 @@ python manage.py migrate
 - admin 파일 안에 넣기
 - from todo.models import Todo
 - admin.site.register(Todo)
+
+- [django-shortcuts · PyPI](https://pypi.org/project/django-shortcuts/)
+
+
+## PJT시작
+
+```bash
+pip freeze > requirements.txt
+git add .
+git remote add origin [저장소]
+git push origin master
+```
+1. 깃허브 저장소와 장고 프로젝트를 생성
+    1. 
+2. 생성한 저장소에 장고 프로젝트를 push
+```bash
+python -m venv venv
+source venv/Scripts/activate
+pip install  django==3.2.13
+pip list
+python manage.py runserver
+```
