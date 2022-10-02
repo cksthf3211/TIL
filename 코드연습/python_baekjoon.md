@@ -2091,13 +2091,38 @@ for i in s:
         print(-1, end=' ')
 ```
 ```python
+# 3273번 - 두 수의 합 ( 투 포인터 )
+import sys
+input = sys.stdin.readline
 
+n = int(input())
+num = list(map(int, input().split()))
+num.sort()
+x = int(input())
+cnt = 0
+
+for i in range(n):
+    num
+    for j in range(n):
+        num.reverse # num[::-1]
+
+        if x == [i] + [j]:
+            cnt += 1
+        
+print(cnt)
 ```
 ```python
-
+# 10799번 - 쇠막대기 ( 스택과 큐 )
 ```
 ```python
+# 12847번 - 꿀 아르바이트 ( 슬라이딩 )
+import sys
+input = sys.stdin.readline
 
+n, m = map(int, input().split())
+t = map(int, input().split())
+
+for i in range(n):
 ```
 ```python
 
