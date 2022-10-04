@@ -134,3 +134,11 @@ pip install  django==3.2.13
 pip list
 python manage.py runserver
 ```
+
+```bash
+python -m -venv venv
+source venv/Scripts/activate
+pip install  django==3.2.13
+pip freeze > requiremant.txt
+
+```
