@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <h1>EDIT</h1>
+    <form action="{% url 'todos:update' todo.pk %}" method="TODO">
+        {% csrf_token %}
+        ...
+    <a href="{% url 'todos:index' %}">[back]</a>
+
+{% endblock %}

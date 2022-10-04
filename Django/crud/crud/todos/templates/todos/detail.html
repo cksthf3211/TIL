@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Detail.html</h1>
+    <h2>제목 : {{ todos.title }}</h2>
+    <p>골라골라</p>
+    <a href="% url 'todos:index'">새 글 쓰기</a>
+    <a href="{% url 'articles:edit' article.pk %}">EDIT</a><br>
+    <!-- -------------------- -->
+    <h3>{{ article.pk }} 번째 글</h3>
+    <hr>
+    <p>제목: {{ todo.title }}</p>
+    <p>내용: {{ todo.content }}</p>
+    <p>작성 시각: {{ todo.created_at }}</p>
+    <p>수정 시각: {{ todo.updated_at }}</p>
+    <hr>
+    <a href="{% url 'todos:edit' todo.pk %}">EDIT</a><br>
+    <form action="{% url 'todos:delete' todo.pk %}" method="TODO">
+    {% csrf_token %}
+    <input type="submit" value="DELETE">
+    </form>
+    <a href="{% url 'todos:index' %}">[back]</a>
+{% endblock %}

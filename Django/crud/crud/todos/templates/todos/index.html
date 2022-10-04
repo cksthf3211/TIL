@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1><b>Priority Calendar</b></h1>
+    <form action="{% url 'todos:create' %}">
+        할 일<input type="text" name="content" placeholder="할 일 내용" maxlength="80"><br>
+        우선순위<select name="priority">
+            <option value="">순위</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        마감기한<input type="date" name="deadline"><br>
+        <input type="submit" value = "할 일 추가">
+    </form>
+    
+    <hr>
+    <table class="table-primary">
+        <thead>
+            <tr class="my-3">
+                <th scope="col"><b>우선 순위</b></th>
+                <th scope="col"><b>할 일</b></th>
+                <th scope="col"><b>생성 날짜</b></th>
+                <th scope="col"><b>마감 기한</b></th>
+                <th scope="col"><b>진행 상태</b></th>
+                <!-- <th scope="col"><b>상태 변경</b></th> -->
+                <th scope="col"><b><a href="{% url 'todos:update todo.pk' %}">상태 변경{{ todo.title }}</a></b></th>
+                <!-- <th scope="col"><b>삭제</b></th> -->
+                <th scope="col"><b><a href="{% url 'delete' todo.pk %}">삭제{{ todo.title }}</a></b></th>
+            </tr>
+        </thead>
+        <!-- <a href="{% url 'todos:detail' todo.pk %}">삭제</a> -->
+
+        <tbody>
+            {% for i in todos %}
+            <tr class="align-middle">
+                <td>{{ i.priority }}</td>
+                <td>{{ i.content }}</td>
+                <td>{{ i.deadline }}</td>
+                <td>{{ i.create_at }}</td>
+                <td>{{ i.completed }}</td>
+                <td><a href="{% url 'todos:update' i.pk %}"><button type="button">완료</button></a></td>
+                <td><a href="{% url 'todos:delete' i.pk %}"><button type="button">삭제</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
