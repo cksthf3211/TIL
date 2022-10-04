@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Detail.html</h2>
+<h1>{{ pps.pk }}번 게시글</h1>
+<p>{{ pps.create_at }} | {{ pps.update_at }}</h>
+<p>{{ pps.content }}</p>
+
+<a href="{% url 'pps:update' pps.pk %}">수정하기</a>
+{% endblock %}

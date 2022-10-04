@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Update.html</h2>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ pps_Form.as_p }}
+    <input type="submit" value="수정">
+</form>
+
+{% endblock %}
