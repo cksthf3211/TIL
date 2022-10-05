@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %} {% load django_bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+
+<h2>DETAIL.HTML</h2>
+<hr>
+<div class="m-5 p-3 border border-3 border-info rounded">
+  <h3>제목 : {{v.title}}</h3>
+  <h5>내용 : {{v.content}}</h5>
+  <p>만든날짜 : {{v.created_at}} | 수정날짜 : {{v.updated_at}}</p>
+</div>
+<button class="btn btn-outline-info"><a href="{% url 'ppaps:update' v.pk %}" class="text-decoration-none">수정</a></button>
+<button class="btn btn-outline-danger"><a href="{% url 'ppaps:delete' v.pk %}" class="text-decoration-none">삭제</a></button>
+{% bootstrap_button button_type="submit" content="수정" %}
+{% bootstrap_button button_type="reset" content="삭제" %}
+<hr>
+
+{% endblock %}

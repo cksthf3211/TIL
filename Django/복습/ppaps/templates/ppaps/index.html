@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %} {% load django_bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+
+<h2>INDEX.HTML</h2>
+<hr>
+<div class="text-center m-3">
+  <a href="{% url 'ppaps:create' %}" type="button" class="btn btn-outline-info text-decoration-none">글 쓰기</a>
+</div>
+<hr>
+
+{% for i in v %}
+<div class="m-5 p-3 border border-3 border-info rounded">
+  <a href="{% url 'ppaps:detail' i.pk %}" class="text-decoration-none"><h3>제목 : {{i.title}}</h3></a>
+  <h5>내용 : {{i.content}}</h5>
+  <p>만든날짜 : {{i.created_at}} | 수정날짜 : {{i.updated_at}}</p>
+</div>
+<hr>
+{% endfor%}
+{% endblock %}

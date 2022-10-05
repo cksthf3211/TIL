@@ -110,8 +110,12 @@ python manage.py migrate
 - python manage.py createsuperuser
 
 - admin 파일 안에 넣기
-- from todo.models import Todo
-- admin.site.register(Todo)
+1.  from [.models].models import [model명]
+2.  admin.site.register([model명])
+
+class UserAdmin(admin.ModelAdmin) : 
+    list_display = ('username', 'password')
+    admin.site.register(User1, UserAdmin)  #site에등록
 
 - [django-shortcuts · PyPI](https://pypi.org/project/django-shortcuts/)
 

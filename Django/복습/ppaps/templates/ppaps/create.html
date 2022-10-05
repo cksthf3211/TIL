@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %} {% load django_bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+
+<h2>CREATE.HTML</h2>
+<hr>
+<form action="{% url 'ppaps:create' %}" method="POST" >
+{% csrf_token %}
+{{% bootstrap_form ppaps_form %}}
+    <!-- <label for="title" class="m-3">제목 : </label>
+    <input type="text" name="title" id="title"><br>
+    <label for="content" class="m-3">내용 : </label>
+    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+     -->
+    <input type="submit" class="btn btn-outline-info text-decoration-none m-3" value="글쓰기">
+</form>
+<hr>
+{% endblock %}
