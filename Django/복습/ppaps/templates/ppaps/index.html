@@ -1,8 +1,9 @@
-{% extends 'base.html' %} {% block content %} {% load django_bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
-
+{% extends 'base.html' %} {% block content %} {% load django_bootstrap5 %} {% bootstrap_javascript %} {% bootstrap_css %}
+{% load static %}
 <h2>INDEX.HTML</h2>
 <hr>
 <div class="text-center m-3">
+  <img src="{% static 'adad.png' %}" alt="">
   <a href="{% url 'ppaps:create' %}" type="button" class="btn btn-outline-info text-decoration-none">글 쓰기</a>
 </div>
 <hr>

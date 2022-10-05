@@ -4,13 +4,13 @@
 <hr>
 <form action="{% url 'ppaps:update' c.pk %}" method="POST" >
 {% csrf_token %}
-{{% bootstrap_form ppaps_form %}}
     <!-- <label for="title" class="m-3">제목 : </label>
     <input type="text" name="title" id="title"><br>
     <label for="content" class="m-3">내용 : </label>
     <textarea name="content" id="content" cols="30" rows="10"></textarea>
-     -->
-    <input type="submit" class="btn btn-outline-info text-decoration-none m-3" value="수정">
+    <input type="submit" class="btn btn-outline-info text-decoration-none m-3" value="수정"> -->
+{% bootstrap_form ppaps_form %}
+{% bootstrap_button "수정" button_type="submit" button_class="btn-primary" %}
 </form>
 <hr>
 {% endblock %}
