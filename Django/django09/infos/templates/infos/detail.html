@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<h2>DETAIL.HTML</h2>
+<hr>
+<div class="m-5 p-3 border border-3 border-info rounded">
+  <h4>제목 : {{ info.title }}</h4>
+  <h4>줄거리 : {{ info.summary }}</h4>
+  <h4>상영시간 : {{ info.running_time }}</h4>
+</div>
+<button class="btn btn-outline-danger"><a href="{% url 'infos:update' info.pk %}" class="text-decoration-none">수정</a></button>
+<button class="btn btn-outline-danger"><a href="{% url 'infos:delete' info.pk %}" class="text-decoration-none">삭제</a></button>
+
+<hr>
+{% endblock %}

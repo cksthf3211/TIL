@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<h2>MOVIES.HTML</h2>
+<hr>
+
+<div class="text-center m-3">
+    <img src="{% static 'coffee.png' %}" alt="">
+    <a href="{% url 'infos:create' %}" type="button" class="btn btn-outline-info text-decoration-none">정보 추가</a>
+</div>
+<hr>
+{% for i in info %}
+<h5>pk: {{ i.id }} </h5>
+<a href="{% url 'infos:detail' i.pk %}"><h5>영화 제목: {{ i.title }}</h5></a>  
+<h5>줄거리: {{ i.summary }}</h5>   
+<h5>상영시간: {{ i.running_time }}</h5>
+<hr>  
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<h2>CREATE.HTML</h2>
+<hr>
+
+<div class="row">
+    <div class="col-12">
+        <div class="col-12 text-center">
+            <h1>글 쓰기</h1>
+            <br><br>
+
+        </div>
+        <form method="POST" action="{% url 'infos:create' %}">
+        {% csrf_token %}
+        {{ infos_form.as_p }}
+        <input type="submit" value="글쓰기">
+      </form>
+    </div>
+</div>
+<hr>
+
+{% endblock %}

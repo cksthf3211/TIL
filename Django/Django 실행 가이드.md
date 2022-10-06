@@ -28,7 +28,7 @@ ls                               # 목록 확인
 
 cd ..                            # 한 칸 올라오기(이전 파일) 위치 주의 하기!!!
 
-source test-venv/Scripts/activate # 가상환경 작동 (server-venv) 텝 으로 입력
+source venv/Scripts/activate # 가상환경 작동 (server-venv) 텝 으로 입력
                                  # 가상환경 안에서는 바깥에 영향을 미치지 않음
 pip list                         # Django가 깔려있지 않은거 확인
 
