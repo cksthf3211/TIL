@@ -144,7 +144,7 @@ python -m -venv venv
 source venv/Scripts/activate
 pip install  django==3.2.13
 pip freeze > requiremant.txt
-
+pip install -r requirements.txt
 ```
 ## 참고
 [아이콘](https://icon-icons.com/ko/%EC%95%84%EC%9D%B4%EC%BD%98/%EA%B3%A0%EC%8A%B4%EB%8F%84%EC%B9%98-%EB%8F%99-%EA%B7%80%EC%97%AC%EC%9A%B4-%EC%9E%91-%EA%B3%A0%EC%8A%B4%EB%8F%84%EC%B9%98-%EA%B0%80%EC%9D%84/150807)

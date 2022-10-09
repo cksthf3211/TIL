@@ -2186,8 +2186,8 @@ sys.setrecursionlimit(10000)
 # dfs 정의
 def dfs(x, y):
     # 상하좌우 확인을 위해 dx, dy 생성
-    dx = [0,0,-1,1]
-    dy = [1,-1,0,0]
+    dx = [0,0,-1,1] # 우, 좌, 상, 하
+    dy = [1,-1,0,0] # 
 
     # 네 방향 탐색
     for i in range(4):
@@ -2195,7 +2195,7 @@ def dfs(x, y):
         ny = y + dy[i]
         if (0 <= nx < m) and (0 <= ny < n):  # nx:ny ↔ M:N 범위 참고
             if graph[ny][nx] == 1:
-                graph[ny][nx] = -1  # 배추가 인접할 때 체커
+                graph[ny][nx] = -1  # 배추가 인접할 때 체커 체크체크
                 dfs(nx, ny)
 
 # 1
@@ -2222,7 +2222,43 @@ for i in range(t):
     print(cnt)
 ```
 ```python
+# 1260번 - DFS와 BFS
 
+N,M,V = map(int,input().split())
+
+#행렬 만들기
+graph = [[0]*(N+1) for _ in range(N+1)]
+for i in range (M):
+    a,b = map(int,input().split())
+    graph[a][b] = graph[b][a] = 1
+
+#방문 리스트 행렬
+visited1 = [0]*(N+1)
+visited2 = visited1.copy()
+
+#dfs 함수 만들기
+def dfs(V):
+    visited1[V] = 1 #방문처리
+    print(V, end=' ')
+    for i in range(1, N+1):
+        if graph[V][i] == 1 and visited1[i] == 0:
+            dfs(i)
+
+#bfs 함수 만들기
+def bfs(V):
+    queue = [V]
+    visited2[V] = 1 #방문처리
+    while queue:
+        V = queue.pop(0) #방문 노드 제거
+        print(V, end = ' ')
+        for i in range(1, N+1):
+            if(visited2[i] == 0 and graph[V][i] == 1):
+                queue.append(i)
+                visited2[i] = 1 # 방문처리
+
+dfs(V)
+print()
+bfs(V)
 ```
 ```python
 
