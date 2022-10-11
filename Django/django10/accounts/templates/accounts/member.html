@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>MEMBER.html.html</h2>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope ='col'>#</th>
+                <th scope ='col'>username</th>
+                <th scope ='col'>email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in t %}
+            <tr>
+                <th scope="row">{{ i.id }}</th>
+                <td><a href="{% url 'accounts:detail' i.pk %}">{{ i.username }}</a></td>
+                <td>{{ i.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <a href="{% url 'accounts:signup' %}" class="btn btn-info">회원가입</a>
+</div>
+
+{% endblock %}
