@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from accounts.forms import UsersForm
 from .models import User
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 
@@ -34,3 +35,14 @@ def member(request):
         't' : t
     }
     return render(request, 'accounts/member.html', context)
+
+def login(request):
+    form = AuthenticationForm()
+    if 
+    context = {
+        'form' : form
+    }
+    return render(request, "accounts/login.html", context)
+
+def logout(request):
+    return render(request, "accounts/logout.html")
