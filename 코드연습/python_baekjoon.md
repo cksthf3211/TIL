@@ -2262,7 +2262,73 @@ bfs(V)
 ```
 ```python
 # 1063번 - 킹
+import sys
+input = sys.stdin.readline
 
+king, stone, n= input().split()
+m = [input() for _ in range(int(n))]
+info = {
+    "R" : [0, 1],
+    "L" : [0, -1],
+    "B" : [-1, 0],
+    "T" : [1, 0],
+    "RT" : [1, 1],
+    "LT" : [1, -1],
+    "RB" : [-1, 1],
+    "LB" : [-1, -1]
+}
+
+alpha = {chr(i):ord(chr(i)) - ord('A') for i in range(65, 73)}
+num_alpha = {i:chr(i+65) for i in range(8)}
+kx, ky = int(king[1])-1, alpha[king[0]]
+rx, ry = int(stone[1])-1, alpha[stone[0]]
+
+maps = [[0]*8 for i in range(8)]
+
+for i in range(len(m)):
+    move = info[m[i]]
+    nkx, nky = kx + move[0], ky + move[1]
+    if nkx < 0 or nky < 0 or nkx >= 8 or nky >= 8:
+        continue
+    
+    if nkx == rx and nky == ry:
+        nrx, nry = rx + move[0], ry + move[1]
+        
+        if nrx < 0 or nry < 0 or nrx >= 8 or nry >= 8:
+            continue
+        
+        else:
+            kx, ky = nkx, nky
+            rx, ry = nrx, nry
+            
+    else:
+        kx, ky = nkx, nky
+        
+print(num_alpha[ky] + str(kx+1))
+print(num_alpha[ry] + str(rx+1))
+
+---
+
+king, stone, N = input().split()
+k = list(map(int, [ord(king[0]) - 64, king[1]]))
+s = list(map(int, [ord(stone[0]) - 64, stone[1]]))
+move = {'R': [1, 0], 'L': [-1, 0], 'B': [0, -1], 'T': [0, 1], 'RT': [1, 1], 'LT': [-1, 1], 'RB': [1, -1], 'LB': [-1, -1]}
+
+for _ in range(int(N)):
+    m = input()
+    nx = k[0] + move[m][0]
+    ny = k[1] + move[m][1]
+    if 0 < nx <= 8 and 0 < ny <= 8:
+        if nx == s[0] and ny == s[1]:
+            sx = s[0] + move[m][0]
+            sy = s[1] + move[m][1]
+            if 0 < sx <= 8 and 0 < sy <= 8:
+                k = [nx, ny]
+                s = [sx, sy]
+        else:
+            k = [nx, ny]
+print(f'{chr(k[0] + 64)}{k[1]}')
+print(f'{chr(s[0] + 64)}{s[1]}')p
 ```
 ```python
 # 4963번 - 섬의 개수
@@ -2277,8 +2343,53 @@ bfs(V)
 
 ```
 ```python
+# 9205번 - 맥주 마시면서 걸어가기
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+def bfs():
+    
+    q = deque()
+    q.append([home[0], home[1]])
+    while q:
+        x, y = q.popleft()
+        if abs(x - fest[0]) + abs(y - fest[1]) <= 1000:
+            print("happy")
+            return
+        
+        for i in range(n):
+            if not visited[i]:
+                new_x, new_y = conv[i]
+                if abs(x - new_x) + abs(y - new_y) <= 1000:
+                    q.append([new_x, new_y])
+                    visited[i] = 1
+    print("sad")
+    return
+
+
+t = int(input())
+
+for i in range(t):
+    n = int(input())
+    home = [int(x) for x in input().split()]
+    conv = []
+    
+    for j in range(n):
+        x, y = map(int, input().split())
+        conv.append([x, y])
+        
+    fest = [int(x) for x in input().split()]
+    visited = [0 for i in range(n+1)]
+    bfs()
+```
+```python
+# 2468번 - 안전영역
 
 ```
+```python
+# 2583번 - 영역 구하기
 
+```
 
 

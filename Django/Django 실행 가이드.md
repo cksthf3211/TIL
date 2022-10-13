@@ -18,7 +18,7 @@ pip list                         # package와 version을 확인
 
 python --version                 # python version 확인: Python 3.9.13
 
-Python -m venv [가상환경이름]-venv    # 가상환경 생성
+Python -m venv [가상환경이름]    # 가상환경 생성
 
 ls -a                            # 생성 확인
 
