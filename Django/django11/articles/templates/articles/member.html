@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>MEMBER.html.html</h2>
+<hr>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope ='col'>ID</th>
+                <th scope ='col'>username</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in m %}
+            <tr>
+                <th scope="row">{{ i.id }}</th>
+                <td><a href="{% url 'articles:detail' i.pk %}">{{ i.username }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<hr>
+
+{% endblock %}

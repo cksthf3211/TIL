@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %} {% load django_bootstrap5 %}
+
+<h2>LOGIN.html</h2>
+<hr>
+<form action="{% url 'articles:login' %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="OK" %}
+</form>
+
+
+{% endblock %}

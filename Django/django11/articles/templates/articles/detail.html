@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %} {% load django_bootstrap5 %}
+
+<h2>DETAIL.html</h2>
+<hr>
+<div>
+    <p>아이디: {{ d.username }}</p>
+</div>
+<button><a href="{% url 'articles:update' %}">회원정보수정</a></button>
+<button><a href="{% url 'articles:delete' user.pk %}">회원삭제</a></button>
+
+{% endblock %}
