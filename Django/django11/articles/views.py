@@ -1,4 +1,3 @@
-from calendar import c
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm # Django 내장 로그인 폼 AuthenticationForm 활용
 from django.contrib.auth import login as auth_login
