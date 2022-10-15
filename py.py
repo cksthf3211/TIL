@@ -1,40 +1,45 @@
-from collections import deque
 import sys
-read = sys.stdin.readline
+sys.setrecursionlimit(100000)
+input = sys.stdin.readline
 
-def bfs(v):
-    q = deque()
-    q.append(v)       # 정점의 번호를 q에 append
-    visit_list[v] = 1 # 방문을 하게되면 1로 바꿔줌 
-    while q:                  # deque를 계속 돌리면서
-        v = q.popleft()       # 방문 노드를 하나씩 빼줌
-        print(v, end = " ")
-        for i in range(1, n + 1): # 1~정점 개수
-            if visit_list[i] == 0 and graph[v][i] == 1: # 방문을 안하고, 그래프가 1이면,
-                q.append(i)       # deque에 넣어줌
-                visit_list[i] = 1 # 그럼 방문 했어~ 1이야~
+#상 하 좌 우 변량
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
 
-def dfs(v):
-    visit_list2[v] = 1        # 방문을 하게되면 1로 바꿔줌
-    print(v, end = " ")
-    for i in range(1, n + 1): # 1~정점 개수
-        if visit_list2[i] == 0 and graph[v][i] == 1:
-            dfs(i)
+#x,y 지점을 기준으로 주변을 탐색하는 재귀함수 
+def sink_DFS(x, y, h):
+    # x,y 좌표를 기준으로 상하좌우 좌표를 nx 포문으로 가져옴
+    for m in range(4):
+        nx = x + dx[m]
+        ny = y + dy[m]
+        # 자신이 건너갈 nx, ny 좌표에 대한 유효성을 먼저 검증함
+        if (0 <= nx < N) and (0 <= ny < N) and not sink_table[nx][ny] and water_board[nx][ny] > h:
+            #유효성이 검증된 좌표에 한해서 재귀함수를 호출. 이 과정이 없으면 쌓는 스택이
+            sink_table[nx][ny] = True
+            #실질적으로 재귀함수가 하는 역할은 sink_table에 boolean 값만 바꾸는 역할.
+            sink_DFS(nx, ny, h)
 
-n, m, v = map(int, read().split())            # 정점의 개수, 간선의 개수, 정점의 번호
+N = int(input())
+water_board = [list(map(int, input().split())) for _ in range(N)]
+#입력값에 따른 물 높이 board 생성
 
-graph = [[0] * (n + 1) for _ in range(n + 1)] # 그래프
-# graph = []
-# for _ in range(n+1):
-#     graph.append([0] * (n+1))
+#물에 잠김 여부를 확인할 수 있는 Boolean Table 생성.
+# sink_table = [[False for i in range(N)] for j in range(N)]
 
-visit_list = [0] * (n + 1)   # bfs에서
-visit_list2 = [0] * (n + 1)  # dfs에서
+ans = 1
 
-for _ in range(m):
-    a, b = map(int, read().split())
-    graph[a][b] = graph[b][a] = 1    # 양방향(둘 다 연결됨)
+for k in range(max(map(max, water_board))):
+    sink_table = [[False]*N for _ in range(N)]
+    count = 0
 
-dfs(v)
-print()
-bfs(v)
+    for i in range(N):
+
+        for j in range(N):
+            if water_board[i][j] > k and not sink_table[i][j]:
+                count += 1
+                sink_table[i][j] = True
+                sink_DFS(i, j, k)
+
+    ans = max(ans, count)
+
+print(ans)
