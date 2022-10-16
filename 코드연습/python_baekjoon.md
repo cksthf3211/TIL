@@ -2449,7 +2449,7 @@ def sink_DFS(x, y, h):
             sink_DFS(nx, ny, h)
 
 N = int(input())
-water_board = [list(map(int, input().split())) for _ in range(N)]
+water_board = [list(map(int, input().split())) for _ in range(N)]  # 2차원 배열을 생성
 #입력값에 따른 물 높이 board 생성
 
 #물에 잠김 여부를 확인할 수 있는 Boolean Table 생성.
@@ -2475,6 +2475,47 @@ print(ans)
 ```
 ```python
 # 2583번 - 영역 구하기
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+m,n,k = map(int,input().split())
+board = [[0]*n for i in range(m)] # m × n 크기만큼 2차원 배열을 생성
+
+# 모눈종이 칠하기
+for _ in range(k):
+    x1,y1,x2,y2 = map(int,input().split())
+    for i in range(y1,y2):
+        for j in range(x1,x2):
+            board[i][j] = 1  # 입력받는 좌표대로 배열의 영역을 1로 칠해준다.
+
+# 모눈종이 전체를 탐색하며 BFS 진행
+q = deque()
+area = []
+move = [(1,0),(0,1),(-1,0),(0,-1)]  # 배열을 0,0 부터 M,N 좌표까지 탐색하며 0인 부분에 대해 BFS를 진행
+for i in range(m):
+    for j in range(n):
+        if not board[i][j]:
+            board[i][j]=1
+            q.append((i,j))
+            area.append(1)
+            while(q):
+                x,y = q.popleft()
+                for a,b in move:
+                    dx = x+a; dy = y+b
+                    if m>dx>=0 and n>dy>=0 and not board[dx][dy]:
+                        q.append((dx,dy))
+                        board[dx][dy] = 1
+                        area[-1]+=1
+print(len(area))
+print(*sorted(area))
+```
+```python
+# 
+
+```
+```python
+# 
 
 ```
 
