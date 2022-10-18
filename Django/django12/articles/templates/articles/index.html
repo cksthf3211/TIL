@@ -1,0 +1,33 @@
+{% extends 'base.html' %}{% block content %}
+<h2>http://localhost:8000/articles/</h2>
+<h3>articles : 목록 조회, 정보 조회, 게시글 생성</h3>
+<h3>coment : 작성된 댓글 목록 조회, 댓글 생성, 댓글 삭제</h3>
+<h3>게시글 정보 페이지, 댓글 작성 폼, 총 댓글 개수 출력, 댓글 목록(내용, 삭제), 게시글 작성</h3>
+<hr>
+
+<h2 class="m-3">게시글 목록</h2>
+<div class="d-flex justify-content-end mx-5 my-3">
+  <a href="{% url 'articles:create' %}"><button type="button" class="btn btn-outline-dark">게시글 작성하기</button></a>
+</div>
+<table class="table mx-5">
+  <thead>
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">제목</th>
+      <th scope="col">내용</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for r in articles %}
+    <tr>
+      <th scope="row"><br>{{r.id}}</th>
+      <td><br><a class="text-decoration-none" href="{% url 'articles:detail' r.pk %}"> {{r.title}}</a></td>
+      <td><br>{{ r.content }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<hr>
+{% endblock content %}
+
