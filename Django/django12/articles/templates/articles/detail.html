@@ -22,10 +22,12 @@
 <p>---------------------------------------------------------------------------------</p>
 <form action="{% url 'articles:comment' article.pk %}" method="POST">
     {% csrf_token %}
-    {% bootstrap_form comment layout='inline'%}
+    {% bootstrap_form comment layout='inline' %}
     {% bootstrap_button button_type="submit" content="댓글달기" %}
 </form>
+
 <br><br>
+
 <h4>댓글</h4>
 {% if comments %}
 <p><b>{{ comments.count  }}</b> 개의 댓글이 있습니다.</p>
