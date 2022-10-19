@@ -1,7 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-class Article(models.Model):
-    title = models.CharField(max_length=80),
-    content = models.TextField()
+class User(AbstractUser):
+
+    def full_name(self):
+        return f'{self.last_name}{self.first_name}'

@@ -1,3 +1,28 @@
 {% extends 'base.html' %}{% block content %}
-<h2>http://localhost:8000/accounts/index/</h2>
+
+  <h2 class="m-3">회원 목록보기</h2>
+  <hr>
+  <div class="container m-5">
+    {% if request.user.is_authenticated %}
+      <table class="table">
+        <thead>
+          <th>ID</th>
+          <th>이름</th>
+          <th>email</th>
+        </thead>
+        <tbody>
+          {% for user in users %}
+            <tr>
+              <td>{{ user.id }}</td>
+              <td>
+                <a href="{% url 'accounts:detail' user.pk %}">{{user}}</a>
+              </td>
+              <td>{{ user.email }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </div>
+
 {% endblock content %}

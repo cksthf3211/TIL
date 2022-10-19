@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import render, redirect
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
@@ -59,10 +60,12 @@ def comment(request, pk):
     if form.is_valid():
         comment = form.save(commit=False)
         comment.article = article
+        comment.user = request.user
         comment.save()
     return redirect('articles:detail', article.pk)
 
 def comments_delete(request, article_pk, comment_pk):
     comment = Comment.objects.get(pk=comment_pk)
-    comment.delete()
+    if request.user == comment.user:
+        comment.delete()
     return redirect('articles:detail', article_pk)

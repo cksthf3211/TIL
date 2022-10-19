@@ -1,0 +1,13 @@
+{% extends 'base.html' %}{% load django_bootstrap5 %}{% block content %}
+<h2 class="m-3">수정페이지</h2>
+<hr>
+<div class="container m-5">
+    <form method="POST">
+        {% bootstrap_form form%}
+        {% csrf_token %}
+
+        <input type="submit" class="btn btn-primary" value="수정하기">
+    </form>
+</div>
+
+{% endblock content %}
