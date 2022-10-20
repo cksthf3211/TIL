@@ -1,4 +1,5 @@
 from email import message
+from re import A
 from django.shortcuts import render, redirect
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
@@ -75,3 +76,19 @@ def comments_delete(request, article_pk, comment_pk):
         comment.delete()
         messages.success(request, '댓글을 삭제했다.')
     return redirect('articles:detail', article_pk)
+
+def search(request):
+    return render(request, 'articles/search.html')
+
+
+def comments_update (request,article_pk, comment_pk):
+    pick_comment = Comment.objects.get(pk=comment_pk)
+    pick_article = Article.objects.get(pk=article_pk)
+    if request.method == 'POST':
+        C_Form = CommentForm(request.POST, instance=pick_comment )
+        if C_Form.is_valid():
+            a = C_Form (commit=False)
+            a.article = pick_article    
+            a.save()
+            return redirect ("articles:index")
+    return render(request,"articles/detail.html" ,)

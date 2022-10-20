@@ -44,6 +44,12 @@
     {% csrf_token %}
     <input type="submit" value="삭제">
     </form>
+    <div id ="comment_id" name = "comment_id">
+        <form class="my-3 mx-3" action="{% url 'articles:comments_update' article.pk comment.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="수정">
+        </form>
+    </div>
     {% endif %}
     <hr>    
 {% empty %}
