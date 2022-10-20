@@ -3,21 +3,12 @@
 <h2 class="m-3">정보 상세보기</h2>
 <hr>
 <div class="m-3">
-    <p>작성번호 :
-      {{ d.id }}
-    </p>
-    <p>작성시간 :
-      {{ d.date_joined }}</p>
-    <p>이름 :
-      {{ d.username }}</p>
-    <p>이메일 :
-      {{ d.email }}
-    </p>
+  <p>작성번호 : {{ d.id }}</p>
+  <p>작성시간 : {{ d.date_joined }}</p>
+  <p>이름 : {{ d.username }}</p>
+  <p>이메일 : {{ d.email }}</p>
 </div>
-<hr>
-<div class="m-3">
-
-</div>
+{% if request.user.pk == d.pk %}
 <div class="d-flex justify-content-end">
     <a href="{% url 'accounts:update' %}" class="text-decoration-none btn btn-outline-primary mx-1">
       회원정보 변경
@@ -29,8 +20,17 @@
       회원탈퇴
     </a>
 </div>
-<div class="m-3">
+{% endif %}
 
+{% for article in user_article %}
+<p><a class="text-decoration-none m-3" href="{% url 'articles:detail' article.pk %}"> {{ article.id }}번 글: {{ article.title }}</a></p>
+{% endfor %}
+
+
+
+<hr>
+<div>
+  
 </div>
 
 {% endblock content %}

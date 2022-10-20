@@ -15,11 +15,15 @@ def index(request):
 def create(request):
     form = ArticleForm()
     if request.method == "POST":
-        form = ArticleForm(request.POST)
-        if form.is_valid():
-            form.save()
+        aform = ArticleForm(request.POST, request.FILES)
+        if aform.is_valid():
+            aform = aform.save(commit=False)
+            aform.user = request.user
+            aform.save()
             messages.success(request, '글 작성이 완료되었습니다.')
             return redirect('articles:index')
+        else:
+            form = ArticleForm()
     context = {
         "form" : form,
     }
@@ -61,6 +65,7 @@ def comment(request, pk):
         comment = form.save(commit=False)
         comment.article = article
         comment.user = request.user
+        messages.success(request, '댓글을 달았다.')
         comment.save()
     return redirect('articles:detail', article.pk)
 
@@ -68,4 +73,5 @@ def comments_delete(request, article_pk, comment_pk):
     comment = Comment.objects.get(pk=comment_pk)
     if request.user == comment.user:
         comment.delete()
+        messages.success(request, '댓글을 삭제했다.')
     return redirect('articles:detail', article_pk)

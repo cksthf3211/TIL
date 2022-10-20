@@ -5,7 +5,7 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm
-
+from articles.models import Article, Comment
 # Create your views here.
 
 def index(request):
@@ -33,8 +33,10 @@ def signup(request):
 
 def detail(request, pk):
     d = User.objects.get(pk=pk)
+    user_article = d.article_set.all()
     context ={
         'd' : d,
+        'user_article':user_article,
     }
     return render(request,'accounts/detail.html', context)
 

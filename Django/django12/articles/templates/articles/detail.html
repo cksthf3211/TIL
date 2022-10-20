@@ -3,17 +3,22 @@
 <table class="table m-5">
     <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">작성자</th>
           <th scope="col">제목</th>
           <th scope="col">내용</th>
           <th scope="col">작성 시간</th>
+          <th scope="col">이미지</th>
         </tr>
       </thead>
     <tbody>
-        <th scope="row"><br>내용 :</th>
+        <th scope="row"><br><a class="text-decoration-none" href="{% url 'accounts:detail' article.user.pk %}">{{ article.user }}</a></th>
         <td><br>{{article.title}}</td>
         <td><br>{{article.content}}</td>
         <td><br>{{article.created_at}}</td>
+        {% if article.image %}
+        <td><img src="{{ article.image.url }}" alt="review.image" width="170" height="100"></td>
+        {% endif %}
+        
     </tbody>
 </table>
 
@@ -33,7 +38,7 @@
 {% endif %}
 <hr>
 {% for comment in comments %}
-    <p class="mx-3">{{ comment.user }} - {{ comment.content }}</p>
+    <p class="mx-3"><a class="text-decoration-none" href="{% url 'accounts:detail' article.user.pk %}">{{ comment.user }}</a> - {{ comment.content }}</p>
     {% if request.user == comment.user %}
     <form class="my-3 mx-3" action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST">
     {% csrf_token %}

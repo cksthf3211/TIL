@@ -3,7 +3,7 @@
   <div class="container m-5">
     <h2 class="m-3">게시글 작성하기</h2>
     <hr>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
       {% bootstrap_form form %}
       {% csrf_token %}
 
