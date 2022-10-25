@@ -1,5 +1,44 @@
-{% extends 'base.html' %}{% block content %}
-<h1>검색하기</h1>
-<hr>
-{% endblock content %}
+{% extends 'base.html' %}
+{% block body %}
 
+  <div class="d-flex justify-content-between">
+    <h2 class="m-3">검색 결과</h2>
+    <div class="d-flex justify-content-center mt-3" style="height: 35px;">
+      <form action="{% url 'articles:search' %}" class="py-1">
+        <select name="search">
+          <option value="리뷰 제목">리뷰 제목</option>
+        </select>
+        <input class="rounded mx-1" rows="1" name="title">
+        <input type="submit" class="btn btn-outline-dark" value="검색">
+      </form>
+    </div>
+  </div>
+  <hr>
+  {% if request.user.is_authenticated %}
+    <div class="d-flex justify-content-end mx-5 my-3">
+      <a href="{% url 'articles:create' %}">
+        <button type="button" class="btn btn-outline-dark">게시글 작성하기</button>
+      </a>
+    </div>
+    <div class="row px-5">
+      {% for content in form %}
+      {{content.title}}
+        <div class="card col-2 m-3 px-0">
+          <a href="{% url 'articles:detail' content.pk %}" class="text-decoration-none text-primary" style="width: 100%; height: 200;">
+            {% if content.thumbnail %}
+              <img src="{{ content.thumbnail.url }}" class="card-img-top" alt="{{ content.thumbnail.url }}" style="height: 200px">
+            {% else %}
+              <img src="https://dummyimage.com/283x200/000/fff" class="card-img-top" style="width: 100%; height: 200px;">
+            {% endif %}
+            <div class="card-body p-0 text-center">
+              <h5 class="card-title">{{ content.title }}</h5>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <h3>로그인을 해주세요.</h3>
+  {% endif %}
+  <hr>
+{% endblock body %}

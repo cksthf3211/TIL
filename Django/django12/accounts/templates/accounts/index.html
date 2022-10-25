@@ -9,6 +9,7 @@
           <th>ID</th>
           <th>이름</th>
           <th>email</th>
+          
         </thead>
         <tbody>
           {% for user in users %}
@@ -18,6 +19,7 @@
                 <a href="{% url 'accounts:detail' user.pk %}">{{user}}</a>
               </td>
               <td>{{ user.email }}</td>
+              
             </tr>
           {% endfor %}
         </tbody>

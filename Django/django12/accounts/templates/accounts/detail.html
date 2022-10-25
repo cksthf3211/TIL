@@ -8,6 +8,21 @@
   <p>이름 : {{ d.username }}</p>
   <p>이메일 : {{ d.email }}</p>
 </div>
+<p>팔로우 : {{ user.followings.count }} | 팔로워 : {{ user.followers.count }}</p>
+{% if request.user != d %}
+    {% if request.user in d.followers.all %}
+    <form action="{% url 'accounts:follow' d.pk %}" method="POST">
+      {% csrf_token %}
+      <input class='btn btn-outline-danger px-0' type="submit" value="UNFOLLOW" style='width:120px'>
+    </form>
+    {% else %}
+    <form action="{% url 'accounts:follow' d.pk %}" method="POST">
+      {% csrf_token %}
+      <input class='btn btn-outline-primary px-0' type="submit" value="FOLLOW" style='width:120px'>
+    </form>
+    {% endif %}
+
+{% endif %}
 {% if request.user.pk == d.pk %}
 <div class="d-flex justify-content-end">
     <a href="{% url 'accounts:update' %}" class="text-decoration-none btn btn-outline-primary mx-1">

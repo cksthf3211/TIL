@@ -1,5 +1,5 @@
 {% extends 'base.html' %}{% block content %}{% load django_bootstrap5 %}
-<h2 class="m-3">게시글 상세보기</h2>
+
 <table class="table m-5">
     <thead>
         <tr>
@@ -21,14 +21,31 @@
         
     </tbody>
 </table>
+<h2 class="m-5">게시글 좋아요: {{article.like_users.all|length}}<h2>
+{% if request.user.is_authenticated %}
+<div class="m-3">
+    <form action="{% url 'articles:like' article.pk %}" method="POST">
+        {% csrf_token %}
+        {% if request.user in article.like_users.all %}
+        <input class='btn btn-outline-danger px-0' type="submit" value="UNLIKE" style='width:120px'>
+        {% else %}
+        <input class='btn btn-outline-primary px-0' type="submit" value="LIKE" style='width:120px'>
+        {% endif %}
+    </form>
+</div>
+{% endif %}
 
+{% if request.user.pk == user.pk %}
 <a class="m-5" href="{% url 'articles:update' article.pk %}"><button type="button" class="btn btn-outline-dark">수정</button></a>
 <a href="{% url 'articles:delete' article.pk %}"><button type="button" class="btn btn-outline-dark">삭제</button></a>
+{% endif %}
+
 <form class="my-3 mx-3" action="{% url 'articles:comment' article.pk %}" method="POST">
     {% csrf_token %}
     {% bootstrap_form comment layout='inline' %}
     {% bootstrap_button button_type="submit" content="댓글달기" %}
 </form>
+
 
 <br><br>
 

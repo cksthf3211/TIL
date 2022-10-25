@@ -1,13 +1,12 @@
-from email import message
-from re import A
 from django.shortcuts import render, redirect
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
-    articles = Article.objects.order_by('-pk')
+    articles = Article.objects.all().order_by('-pk')
     context = {
         'articles': articles
     }
@@ -41,6 +40,7 @@ def detail(request, pk):
     }
     return render(request, 'articles/detail.html', context)
 
+@login_required
 def update(request, pk):
     article = Article.objects.get(pk=pk)
     form = ArticleForm(instance=article)
@@ -78,7 +78,12 @@ def comments_delete(request, article_pk, comment_pk):
     return redirect('articles:detail', article_pk)
 
 def search(request):
-    return render(request, 'articles/search.html')
+    search = request.GET.get("search")
+    articles = Article.objects.filter(title__contains=search)
+    context = {
+        "articles" : articles,
+    }
+    return render(request, 'articles/index.html', context)
 
 
 def comments_update (request,article_pk, comment_pk):
@@ -92,3 +97,17 @@ def comments_update (request,article_pk, comment_pk):
             a.save()
             return redirect ("articles:index")
     return render(request,"articles/detail.html" ,)
+
+@ login_required
+def like(request, pk):
+    article = Article.objects.get(pk=pk)
+    # 만약에 로그인한 유저가 이 글을 좋아요를 눌렀다면,
+    # if article.like_users.filter(id=request.user.id).exists():
+    if request.user in article.like_users.all(): 
+        # 좋아요 삭제하고
+        article.like_users.remove(request.user)
+    else:
+        # 좋아요 추가하고 
+        article.like_users.add(request.user)
+    # 상세 페이지로 redirect
+    return redirect('articles:detail', pk)

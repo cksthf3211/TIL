@@ -1,6 +1,14 @@
 {% extends 'base.html' %}{% block content %}
-
-<h2 class="m-3">게시글 목록</h2>
+<div class="d-flex justify-content-between">
+  <h2 class="m-3">게시글 목록</h2>
+  <div class="d-flex justify-content-center mt-3" style="height: 35px;">
+    <form class="d-flex" role="search" action=" {% url 'articles:search' %}">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+          name="search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+  </div>
+</div>
 <hr>
 {% if request.user.is_authenticated %}
 <div class="d-flex justify-content-end mx-5 my-3">
@@ -12,6 +20,8 @@
       <th scope="col">번호</th>
       <th scope="col">제목</th>
       <th scope="col">내용</th>
+      <th>LIKE</th>
+      <th scope="col">thumbnail</th>
     </tr>
   </thead>
 
@@ -21,6 +31,8 @@
       <th scope="row"><br>{{r.id}}</th>
       <td><br><a class="text-decoration-none" href="{% url 'articles:detail' r.pk %}"> {{r.title}}</a></td>
       <td><br>{{ r.content }}</td>
+      <td>LIKE :{{user.like_users.all.|length}}</td>
+      <td><img src="{{ r.thumbnail.url }}" class="card-img-top" alt="{{ content.thumbnail.url }}" style="height: 100px; width: 100px;" ></td>
     </tr>
     {% endfor %}
   </tbody>
@@ -30,4 +42,3 @@
 {% endif %}
 <hr>
 {% endblock content %}
-
