@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ball {
+            width: 15rem;
+            height: 15rem;
+            margin: 5rem;
+            background-color: blanchedalmond;
+            border-radius: 70%;
+            text-align: center;
+            line-height: 10rem;
+            font-size: medium;
+            font-weight: bold;
+        }
+        .ball-container {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>로또 추첨 번호</h1>
+    <button id="lotto-btn">행운 번호 받기</button>
+    <div id="result">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+        const button = document.querySelector('#lotto-btn')
+        button.addEventListener('click', function(){
+            const ballcontainer = document.createElement('div')
+            ballcontainer.classList.add('ball-container')
+            const numbers = _.sampleSize(_.range(1, 46), 6)
+            console.log(numbers)
+            const ball = document.createElement('div')
+            ball.classList.add('ball')
+            ball.innerText = numbers[0]
+            ball.style.backgroundColor = 'red'
+            ballContainer.appendChild(ball)
+            const result = document.querySelector('#result')
+            result.appendChild(ballContainer)
+        })
+    </script>
+</body>
+</html>
