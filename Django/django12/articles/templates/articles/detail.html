@@ -21,31 +21,28 @@
         
     </tbody>
 </table>
-<h2 class="m-5">게시글 좋아요: {{article.like_users.all|length}}<h2>
 {% if request.user.is_authenticated %}
-<div class="m-3">
-    <form action="{% url 'articles:like' article.pk %}" method="POST">
-        {% csrf_token %}
-        {% if request.user in article.like_users.all %}
-        <input class='btn btn-outline-danger px-0' type="submit" value="UNLIKE" style='width:120px'>
-        {% else %}
-        <input class='btn btn-outline-primary px-0' type="submit" value="LIKE" style='width:120px'>
-        {% endif %}
-    </form>
-</div>
+  {% if request.user in article.like_users.all %}
+    <i id="like-btn" data-article-id="{{ article.pk }}" class="m-3 fs-4 bi bi-heart-fill"></i>
+  {% else %}
+    <i id="like-btn" data-article-id="{{ article.pk }}" class="m-3 fs-4 bi bi-heart"></i>
+  {% endif %}
 {% endif %}
+<span id="like-count">{{ article.like_users.count }}</span>
 
 {% if request.user.pk == user.pk %}
 <a class="m-5" href="{% url 'articles:update' article.pk %}"><button type="button" class="btn btn-outline-dark">수정</button></a>
 <a href="{% url 'articles:delete' article.pk %}"><button type="button" class="btn btn-outline-dark">삭제</button></a>
 {% endif %}
 
-<form class="my-3 mx-3" action="{% url 'articles:comment' article.pk %}" method="POST">
-    {% csrf_token %}
-    {% bootstrap_form comment layout='inline' %}
-    {% bootstrap_button button_type="submit" content="댓글달기" %}
-</form>
 
+{% if request.user.is_authenticated %}
+<form id="comment-form" data-article-id="{{ article.pk }}" class="mx-3 my-3">
+  {% csrf_token %}
+  {% bootstrap_form comment layout='floating'%}
+  {% bootstrap_button button_type="submit" content="OK" %}
+</form>
+{% endif %}
 
 <br><br>
 
@@ -54,10 +51,11 @@
 <p class="my-3 mx-3"><b>{{ comments.count  }}</b> 개의 댓글이 있습니다.</p>
 {% endif %}
 <hr>
+<div id="comments">
 {% for comment in comments %}
     <p class="mx-3"><a class="text-decoration-none" href="{% url 'accounts:detail' article.user.pk %}">{{ comment.user }}</a> - {{ comment.content }}</p>
     {% if request.user == comment.user %}
-    <form class="my-3 mx-3" action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST">
+    <form id-"comments" class="my-3 mx-3" action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST">
     {% csrf_token %}
     <input type="submit" value="삭제">
     </form>
@@ -72,4 +70,62 @@
 {% empty %}
     <p>댓글이 없습니다.</p>
 {% endfor %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  // (1) 좋아요 버튼
+  const likeBtn = document.querySelector('#like-btn')
+  // (2) 좋아요 버튼을 클릭하면, 함수 실행
+  likeBtn.addEventListener('click', function (event) {
+    // 서버로 비동기 요청을 하고 싶음
+    console.log(event.target.dataset)
+    axios({
+      method: 'get',
+      url: `/articles/${event.target.dataset.articleId}/like/`
+    })
+    .then(response => {
+      console.log(response)
+      console.log(response.data)
+      // event.target.classList.toggle('bi-heart')
+      // event.target.classList.toggle('bi-heart-fill')
+      if (response.data.isLiked === true) {
+        event.target.classList.add('bi-heart-fill')
+        event.target.classList.remove('bi-heart')
+      } else {
+        event.target.classList.add('bi-heart')
+        event.target.classList.remove('bi-heart-fill')
+      }
+      const likeCount = document.querySelector('#like-count')
+      likeCount.innerText = response.data.likeCount
+    })
+  })
+</script>
+<script>
+    // 댓글!
+    // (1) 댓글 폼
+    const commentForm = document.querySelector('#comment-form')
+    // (2) 제출하면, 함수 실행시킬래 
+    // csrf 
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    commentForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      axios({
+        method: 'post',
+        url: `/articles/${event.target.dataset.articleId}/comments/`,
+        headers: {'X-CSRFToken': csrftoken},
+        data: new FormData(commentForm) // 폼에 있는 정보를 data로 넘겨줄 수 있도록 변환
+      })
+      .then(response => {
+        console.log(response.data)
+        // 댓글을 추가하는 로직
+        const comments = document.querySelector('#comments')
+        const p = document.createElement('p')
+        p.innerText = `${response.data.userName} | ${response.data.content}`
+        const hr = document.createElement('hr')
+        comments.append(p, hr) 
+        commentForm.reset()
+      })
+    })
+  </script>
+
 {% endblock content %}

@@ -9,7 +9,8 @@
           <th>ID</th>
           <th>이름</th>
           <th>email</th>
-          
+          <th>follower</th>
+          <th>following</th>
         </thead>
         <tbody>
           {% for user in users %}
@@ -19,7 +20,8 @@
                 <a href="{% url 'accounts:detail' user.pk %}">{{user}}</a>
               </td>
               <td>{{ user.email }}</td>
-              
+              <td>{{ user.followers.count }}</td>
+              <td>{{ user.followings.count }}</td>
             </tr>
           {% endfor %}
         </tbody>
