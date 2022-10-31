@@ -1,0 +1,48 @@
+# Asynchronous JavaScript
+- 비동기식
+   - 병렬적 Task 수행
+   - 요청을 보낸 후 응답을 기다리지 않고 다음 동작이 이루어짐(non-blocking)
+
+- Asynchronous JavaScript And Xml ( AJAX )
+- 비동기 통신 웹 개발 기술
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>클릭</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const body = document.querySelector('body')
+    const title = document.createElement('h1')
+    title.innerText = 'AJAX'
+    body.appendChild(title)
+
+    const button = document.querySelector('button')
+    button.addEventListener('click', function () {
+      const URL = 'https://jsonplaceholder.typicode.com/todos/1'
+      axios.get(URL)
+        .then(response => {
+          const h2 = document.createElement('h2')
+          h2.innerText = response.data.title
+          body.appendChild(h2)
+          const p = document.createElement('p')
+          p.innerText = response.data.userId
+          body.appendChild(p)
+        })
+        .catch(err => console.log(`${err}!!!`))
+    })
+  </script>
+</body>
+
+</html>
+```
