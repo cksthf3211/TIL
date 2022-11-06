@@ -33,9 +33,7 @@
                 <a class=" px-2" href="{% url 'articles:create' %}"><button type="button" class="btn btn-outline-dark">
                   리뷰 작성하기</button></a>
               </li>
-              <li class="nav-item">
-                <a class="px-2" href="{% url 'articles:index' %}"><button type="button" class="btn btn-outline-dark">리뷰 목록</button></a>
-              </li>
+
             {% else %}
               <li class="nav-item">
                 <a href="{% url 'accounts:login' %}" class="px-2"><button type="button" class="btn btn-outline-dark">로그인</button></a>

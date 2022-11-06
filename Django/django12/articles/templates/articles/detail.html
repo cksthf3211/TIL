@@ -51,6 +51,8 @@
 <p class="my-3 mx-3"><b>{{ comments.count  }}</b> 개의 댓글이 있습니다.</p>
 {% endif %}
 <hr>
+
+
 <div id="comments">
 {% for comment in comments %}
     <p class="mx-3"><a class="text-decoration-none" href="{% url 'accounts:detail' article.user.pk %}">{{ comment.user }}</a> - {{ comment.content }}</p>
@@ -71,6 +73,8 @@
     <p>댓글이 없습니다.</p>
 {% endfor %}
 </div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
   // (1) 좋아요 버튼

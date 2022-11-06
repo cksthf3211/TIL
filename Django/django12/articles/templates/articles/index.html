@@ -34,7 +34,7 @@
       <td><br>{{ r.user }}</td>
       <td><br><a class="text-decoration-none" href="{% url 'articles:detail' r.pk %}"> {{r.title}}</a></td>
       <td><br>{{ r.content }}</td>
-      <td>댓글 수 :{{ r.comments.count }}</td>
+      <td>댓글 수 :{{ r.comment_set.count }}</td>
       <td>LIKE :{{ r.like_users.all|length }}</td>
       <td><img src="{{ r.thumbnail.url }}" class="card-img-top" alt="{{ content.thumbnail.url }}" style="height: 100px; width: 100px;" ></td>
     </tr>
