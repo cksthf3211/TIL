@@ -10,3 +10,10 @@ cd {1번개발자의저장소이름}
 git remote set-url --push origin {2번 개발자의 새롭게 생성한 저장소 주소}
 git push --mirror
 ```
+
+```bbash
+cd 작업할위치로이동
+git clone --bare 기존원격레포주소 cd 기존원격레포이름.git
+git remote set-url --push origin 새원격레포주소 
+git push --mirror
+```
