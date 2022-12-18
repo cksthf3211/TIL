@@ -6,11 +6,19 @@
 </style>
 
 <script>
-var container = Array(); 
-for (var i=0; i<5; i++){ 
-    container.push(function () { 
-        console.log(`나는 ${i}번 입니다.`); 
-    }); 
-} 
-container[3]();
+var value = 1;
+
+var obj = {
+        value: 100,
+    foo: function() {
+            console.log("method's this window: ",  this===window);
+            console.log("method's this.value: ",  this.value); // 100
+                setTimeout(function() {
+                        console.log("callback's this window: ",  this===window);
+                        console.log("callback's this.value: ",  this.value); // 1
+                }, 100);
+    }
+};
+var foo = obj.foo;
+foo();
 </script>
