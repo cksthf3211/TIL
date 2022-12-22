@@ -1,15 +1,18 @@
 import sys
 input = sys.stdin.readline
+ 
+n = int(input())  # 색종이 수
+paper = [[0 for i in range(101)] for i in range(101)] # 2차원 배열 생성
 
-def hansu(num) :
-    hansu_cnt = 0
-    for i in range(1, num+1):
-        num_list = list(map(int,str(i)))
-        if i < 100:
-            hansu_cnt += 1  # 100보다 작으면 모두 한수
-        elif num_list[0]-num_list[1] == num_list[1]-num_list[2]:
-            hansu_cnt += 1  # x의 각 자리가 등차수열이면 한수
-    return hansu_cnt
+for i in range(n):
+    x,y = map(int, input().split()) # input 받아옴
+    for j in range(x, x+10):        # x~ x+10까지 지정
+        for k in range(y, y+10):    # y~ y+10까지 지정
+            paper[j][k] = 1         # 다 1로 바꿔버림
+            
+cnt = 0
 
-num = int(input())
-print(hansu(num))
+for row in paper:
+    cnt += row.count(1)             # 2차원 배열인 paper 안에서 1로 바꾼 부분을 출력
+
+print(cnt)
