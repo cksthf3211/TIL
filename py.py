@@ -2,38 +2,15 @@ import sys
 input = sys.stdin.readline
 from collections import deque
 
-for test_case in range(int(input())):
-  error = False
-  reverse = False
+n = input()
+n_list_1 = list(map(int, input().split()))
+# print(n_list) [2, 4, -10, 4, -9]
 
-  command_list = input().strip()
-  num_cnt = int(input())
-  num_list = deque(input().strip()[1:-1].split(","))
-  
-  if num_cnt == 0:
-    num_list = deque()
+n_list_2 = sorted(list(set(n_list_1)))
+# print(n_list) [-10, -9, 2, 4]
 
-  for command in command_list:
-    if command == "R":
-      if reverse:
-        reverse = False
-      else:
-        reverse = True
+dic = {n_list_2[i] : i for i in range(len(n_list_2))}
+# print(dic) {-10: 0, -9: 1, 2: 2, 4: 3}
 
-    else: 
-      if num_list:
-        if reverse:
-          num_list.pop()
-        else:
-          num_list.popleft()
-      else:
-        error = True
-        break
-      
-  if error:
-    print("error")
-  elif reverse:
-    num_list.reverse()
-    print("["+",".join(num_list)+"]")
-  else:
-    print("["+",".join(num_list)+"]")
+for i in n_list_1:
+    print(dic[i], end=' ') # 2 3 0 3 1
