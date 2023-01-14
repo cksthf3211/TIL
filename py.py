@@ -9,4 +9,4 @@ heap = []
 for i in range(n):
     num = int(input())
 
-print(num)
+# print(num)
