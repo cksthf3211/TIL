@@ -3,26 +3,40 @@ input = sys.stdin.readline
 from collections import deque
 import heapq
 
-n = int(input())
-n_list = []
-cnt = 0
+n, m, v = map(int, input().split())            # 정점의 개수, 간선의 개수, 정점의 번호
 
- 
-for i in range(n):
-    n_list.append(int(input()))
-if n == 1:
-    print(0)
-else:
-    dasom = n_list[0]
-    not_dasom = sorted(n_list[1:], reverse=True)
-    for index, num in enumerate(not_dasom):
-        if dasom == num:
-            print(1)
-            break
-        while(not_dasom[0] >= dasom):
-            cnt += 1
-            dasom += 1
-            not_dasom[0] -= 1
-            not_dasom = sorted(not_dasom, reverse=True)
-        print(cnt)
-        break
+graph = [[0] * (n + 1) for _ in range(n + 1)] # 그래프
+# graph = []
+# for _ in range(n+1):
+#     graph.append([0] * (n+1))
+
+def bfs(v):
+    q = deque()
+    q.append(v)       # 정점의 번호를 q에 append
+    visit_list[v] = 1 # 방문을 하게되면 1로 바꿔줌 
+    while q:                  # deque를 계속 돌리면서
+        v = q.popleft()       # 방문 노드를 하나씩 빼줌
+        print(v, end = " ")
+        for i in range(1, n + 1): # 1~정점 개수
+            if visit_list[i] == 0 and graph[v][i] == 1: # 방문을 안하고, 그래프가 1이면,
+                q.append(i)       # deque에 넣어줌
+                visit_list[i] = 1 # 그럼 방문 했어~ 1이야~
+
+def dfs(v):
+    visit_list2[v] = 1        # 방문을 하게되면 1로 바꿔줌
+    print(v, end = " ")
+    for i in range(1, n + 1): # 1~정점 개수
+        if visit_list2[i] == 0 and graph[v][i] == 1:
+            dfs(i)
+
+
+visit_list = [0] * (n + 1)   # bfs에서
+visit_list2 = [0] * (n + 1)  # dfs에서
+
+for _ in range(m):
+    a, b = map(int, input().split())
+    graph[a][b] = graph[b][a] = 1    # 양방향(둘 다 연결됨)
+
+dfs(v)
+print()
+bfs(v)
