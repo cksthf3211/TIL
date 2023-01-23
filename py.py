@@ -2,41 +2,38 @@ import sys
 input = sys.stdin.readline
 from collections import deque
 import heapq
+sys.setrecursionlimit(10 ** 6)         #  재귀 깊이 늘려줌줌이
 
-n, m, v = map(int, input().split())            # 정점의 개수, 간선의 개수, 정점의 번호
+n, m, r = map(int, input().split())    # 정점 수, 간선 수, 시작 정점
+graph = [[] for _ in range(n+1)]       # 연결노드 그래프 초기화 (1번노드와 인덱스 값이 같게 하기 위해서 n+1로 )
+cnt = 1                                # 방문 순서
+visited = [0] * (n+1)                  # 방문 순서 그래프
 
-graph = [[0] * (n + 1) for _ in range(n + 1)] # 그래프
-# graph = []
-# for _ in range(n+1):
-#     graph.append([0] * (n+1))
+# print(graph) [[], [], [], [], []]
+# print(visited) [0, 0, 0, 0, 0, 0]
 
-def bfs(v):
-    q = deque()
-    q.append(v)       # 정점의 번호를 q에 append
-    visit_list[v] = 1 # 방문을 하게되면 1로 바꿔줌 
-    while q:                  # deque를 계속 돌리면서
-        v = q.popleft()       # 방문 노드를 하나씩 빼줌
-        print(v, end = " ")
-        for i in range(1, n + 1): # 1~정점 개수
-            if visit_list[i] == 0 and graph[v][i] == 1: # 방문을 안하고, 그래프가 1이면,
-                q.append(i)       # deque에 넣어줌
-                visit_list[i] = 1 # 그럼 방문 했어~ 1이야~
+for i in range(m):
+    u, v = map(int, input().split())
+    graph[u].append(v)                 # u가 시작 정점, 연결 되있음 v랑
+    graph[v].append(u)                 # v가 끝나는 정점, 연결 되있음 u랑
+# graph.sort()
+# print(graph) [[], [4, 2], [1, 3, 4], [2, 4], [1, 2, 3], []]
 
-def dfs(v):
-    visit_list2[v] = 1        # 방문을 하게되면 1로 바꿔줌
-    print(v, end = " ")
-    for i in range(1, n + 1): # 1~정점 개수
-        if visit_list2[i] == 0 and graph[v][i] == 1:
-            dfs(i)
+for i in graph:
+    i.sort(reverse=True)                           # 오름차순으로 정렬
+# print(graph) [[], [2, 4], [1, 3, 4], [2, 4], [1, 2, 3], []]
+print(graph)
+def dfs(graph, r, visited):            # v: 정점 집합, e: 간선 집합, r: 시작 정점
+    global cnt
+    visited[r] = cnt
+    for i in graph[r]:
+        if visited[i] == 0:
+            cnt += 1
+            dfs(graph, i, visited)
 
+dfs(graph, r, visited)
+# print(visited) [0, 1, 2, 3, 4, 0]
+# print(cnt) 4 
 
-visit_list = [0] * (n + 1)   # bfs에서
-visit_list2 = [0] * (n + 1)  # dfs에서
-
-for _ in range(m):
-    a, b = map(int, input().split())
-    graph[a][b] = graph[b][a] = 1    # 양방향(둘 다 연결됨)
-
-dfs(v)
-print()
-bfs(v)
+for i in range(1, n+1):
+    print(visited[i])
