@@ -23,7 +23,7 @@ def bfs(b):
     
     while q:
         b = q.popleft()
-        graph[b].sort()
+        graph[b].sort(reverse=True)
         
         for i in graph[b]:
             if visited[i] == 0:
