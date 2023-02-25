@@ -54,4 +54,12 @@ def bfs(x, y):
             # if graph[nx][ny] == 1:
             #     queue.append((nx, ny))
             #     graph[nx][ny] == graph[x][y] + 1
+<<<<<<< HEAD
 bfs(0,0) 
+=======
+                
+    return graph[n-1][m-1]
+
+print(bfs(0,0)) 
+
+>>>>>>> de13d104f21d7ae140a0e0186b87ab01507460c2
