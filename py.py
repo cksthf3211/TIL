@@ -6,4 +6,6 @@ from pprint import pprint
 
 # n, m = map(int, input().split())
 
-print(len(input().strip()))
+for i in range(int(input())):
+    word = str(input())
+    print(word[0] + word[-1])
